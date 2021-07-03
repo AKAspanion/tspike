@@ -38,20 +38,17 @@ const TitleCardOverline = styled.p`
 `;
 
 const TitleCardHeading = styled.h1`
+  font-size: 75px;
   margin-top: 36px;
   font-weight: 700;
   line-height: 1.1;
-
-  @media ${device.mobile} {
-    font-size: 35px;
-  }
 
   @media ${device.tablet} {
     font-size: 50px;
   }
 
-  @media ${device.laptop} {
-    font-size: 75px;
+  @media ${device.mobile} {
+    font-size: 35px;
   }
 `;
 

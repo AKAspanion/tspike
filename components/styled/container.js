@@ -6,7 +6,7 @@ export default styled.div`
   font-size: 32px;
   margin: 0px auto;
 
-  @media ${device.laptop} {
+  @media ${device.desktop} {
     max-width: ${({ theme }) => theme.maxWidth};
   }
 `;

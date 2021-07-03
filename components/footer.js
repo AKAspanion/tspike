@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { FaFacebookSquare, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import styled from 'styled-components';
 
+import device from '../theme/device';
 import Container from './styled/container';
 import Flex from './styled/flex';
 
@@ -30,9 +31,29 @@ const LineBreak = styled.hr`
   border-color: ${({ theme }) => theme.text.light};
 `;
 
-const FooterDetails = styled(Flex)`
-  padding-bottom: 32px;
+const FooterTitleWrapper = styled(Flex)`
+  @media ${device.tablet} {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+`;
+
+const FooterLinksWrapper = styled(Flex)`
+  /* padding-bottom: 32px; */
   justify-content: start;
+  @media ${device.mobile} {
+    padding-top: 6px;
+    padding-bottom: 46px;
+  }
+`;
+
+const FooterDetails = styled(Flex)`
+  padding-bottom: 36px;
+
+  @media ${device.mobile} {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 const FooterTitle = styled.div`
@@ -40,51 +61,101 @@ const FooterTitle = styled.div`
   font-size: 17px;
   font-weight: 700;
   line-height: 21.6px;
+
+  @media ${device.tablet} {
+    padding: 36px 36px 18px 0px;
+  }
 `;
 
-const IconWrapper = styled.div`
+const IconLink = styled.a`
   margin-left: 36px;
+  cursor: pointer;
+  :first-child {
+    @media ${device.mobile} {
+      margin-left: 0px;
+    }
+  }
+
+  svg {
+    @media ${device.mobile} {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  @media ${device.mobile} {
+    margin-left: 18px;
+    color: ${({ theme }) => theme.colors.primary};
+  }
 `;
 
 const CopyrightWrapper = styled(Flex)`
   padding-top: 20px;
+  @media ${device.mobile} {
+    padding: 46px 0px 6px 0px;
+  }
 `;
 
-const PrivacyText = styled.span`
+const HideInMobile = styled.span`
+  @media ${device.mobile} {
+    display: none;
+  }
+`;
+
+const PrivacyText = styled(HideInMobile)`
   color: #999999;
+`;
+
+const PrivacyMobileText = styled.div`
+  color: #999999;
+  display: none;
+
+  div {
+    margin-top: 4px;
+  }
+  @media ${device.mobile} {
+    display: unset;
+  }
 `;
 
 export default function Footer() {
   return (
     <FooterWrapper>
       <FooterContainer>
-        <Flex>
-          <FooterDetails>
+        <FooterDetails>
+          <FooterTitleWrapper>
             <Image src="/logo.svg" alt="logo" width="152" height="42" />
             <FooterTitle>We design and build experiences people love to use.</FooterTitle>
-          </FooterDetails>
-          <FooterDetails>
-            <IconWrapper>
+          </FooterTitleWrapper>
+          <FooterLinksWrapper>
+            <IconLink href="http://google.com/">
               <FaLinkedin size={18} />
-            </IconWrapper>
-            <IconWrapper>
+            </IconLink>
+            <IconLink href="http://google.com/">
               <FaInstagram size={18} />
-            </IconWrapper>
-            <IconWrapper>
+            </IconLink>
+            <IconLink href="http://google.com/">
               <FaTwitter size={18} />
-            </IconWrapper>
-            <IconWrapper>
+            </IconLink>
+            <IconLink href="http://google.com/">
               <FaFacebookSquare size={18} />
-            </IconWrapper>
-          </FooterDetails>
-        </Flex>
+            </IconLink>
+          </FooterLinksWrapper>
+        </FooterDetails>
         <LineBreak />
         <CopyrightWrapper>
           <Copyright>
             Copyright © 2003–2021 Concentrix Tigerspike. All rights reserved.
-            <PrivacyText> | Privacy Policy | GDPR | Modern Slavery Statement</PrivacyText>
+            <PrivacyText>Privacy Policy | GDPR | Modern Slavery Statement</PrivacyText>
+            <PrivacyMobileText>
+              <div>Privacy Policy</div>
+              <div>GDPR</div>
+              <div>Modern Slavery Statement</div>
+            </PrivacyMobileText>
           </Copyright>
-          <Image src="/footer-logo.png" alt="logo" width="36" height="36" />
+          <HideInMobile>
+            <Image src="/footer-logo.png" alt="logo" width="36" height="36" />
+          </HideInMobile>
         </CopyrightWrapper>
       </FooterContainer>
     </FooterWrapper>
