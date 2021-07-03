@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import device from '../../theme/device';
 
 export default styled.div`

@@ -1,4 +1,5 @@
 import Head from 'next/head';
+
 import { TitleCard } from '../components/';
 
 const overline = 'solvers. transformers. humans.';
