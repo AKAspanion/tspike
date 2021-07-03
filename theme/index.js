@@ -1,4 +1,5 @@
 export default {
+  fontFamily: 'Poppins',
   maxWidth: '1200px',
   colors: {
     black: '#000000',
