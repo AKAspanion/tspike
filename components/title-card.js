@@ -11,7 +11,7 @@ const TitleCardWrapper = styled.div`
 const TitleCardContainer = styled(Container)`
   text-align: left;
   padding: 36px 36px 36px 36px;
-  font-family: ${({ theme }) => theme.fontFamily};
+  font-family: ${({ theme }) => theme.fontFamily.primary};
 `;
 
 const TitleCardSubContainer = styled.div`

@@ -1,5 +1,9 @@
 export default {
-  fontFamily: 'Poppins',
+  fontFamily: {
+    // add font link in _document.js
+    primary: 'Poppins',
+    secondary: 'Playfair Display',
+  },
   maxWidth: '1200px',
   colors: {
     black: '#000000',
