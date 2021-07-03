@@ -146,7 +146,7 @@ export default function Footer() {
         <CopyrightWrapper>
           <Copyright>
             Copyright © 2003–2021 Concentrix Tigerspike. All rights reserved.
-            <PrivacyText>Privacy Policy | GDPR | Modern Slavery Statement</PrivacyText>
+            <PrivacyText> | Privacy Policy | GDPR | Modern Slavery Statement</PrivacyText>
             <PrivacyMobileText>
               <div>Privacy Policy</div>
               <div>GDPR</div>
