@@ -1,5 +1,13 @@
 export default {
+  maxWidth: '1200px',
   colors: {
-    primary: '#0070f3',
+    black: '#000000',
+    white: '#ffffff',
+    primary: '#009FA1',
+  },
+  bg: {
+    dark: '#1A1E20',
+    primary: '#ffffff',
+    secondary: '#F7F7F7',
   },
 };
