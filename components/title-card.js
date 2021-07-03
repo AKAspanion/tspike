@@ -11,7 +11,6 @@ const TitleCardWrapper = styled.div`
 const TitleCardContainer = styled(Container)`
   text-align: left;
   padding: 36px 36px 36px 36px;
-  font-family: ${({ theme }) => theme.fontFamily.primary};
 `;
 
 const TitleCardSubContainer = styled.div`
@@ -64,7 +63,7 @@ const TitleCardSubHeading = styled.h2`
   color: ${({ theme }) => theme.text.light};
 `;
 
-const TitleCard = ({ overline, heading, subheading }) => {
+export default function TitleCard({ overline, heading, subheading }) {
   return (
     <TitleCardWrapper>
       <TitleCardContainer>
@@ -82,6 +81,4 @@ const TitleCard = ({ overline, heading, subheading }) => {
       </TitleCardContainer>
     </TitleCardWrapper>
   );
-};
-
-export default TitleCard;
+}
