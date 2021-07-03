@@ -11,4 +11,8 @@ export default {
     primary: '#ffffff',
     secondary: '#F7F7F7',
   },
+  text: {
+    light: '#303133',
+    primary: '#000000',
+  },
 };

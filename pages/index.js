@@ -1,6 +1,13 @@
 import Head from 'next/head';
 import { TitleCard } from '../components/';
 
+const overline = 'solvers. transformers. humans.';
+const heading = (
+  <>
+    Catalyst drives the <br /> outcomes you need.
+  </>
+);
+
 export default function Home() {
   return (
     <div>
@@ -11,14 +18,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <TitleCard
-          overline="solvers. transformers. humans."
-          heading={
-            <>
-              Catalyst drives the <br /> outcomes you need.
-            </>
-          }
-        />
+        <TitleCard overline={overline} heading={heading} />
       </main>
     </div>
   );
