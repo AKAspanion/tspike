@@ -1,4 +1,5 @@
 export default {
+  padding: '36px',
   fontFamily: {
     // add font link in _document.js
     primary: 'Poppins',

@@ -21,7 +21,7 @@ const HeaderMain = styled.header`
 const HeaderContainer = styled(Flex)`
   height: 73px;
   justify-content: space-between;
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     height: 94px;
   }
 `;
@@ -34,14 +34,14 @@ const NavContainer = styled.nav`
   display: table-cell;
   white-space: nowrap;
   vertical-align: top;
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     display: none;
   }
 `;
 
 const TabletVisible = styled.div`
   display: none;
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     display: unset;
   }
 `;
@@ -93,7 +93,7 @@ const NavMobileLi = styled(NavLi)`
 
 const DummyContainer = styled.div`
   height: 73px;
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     height: 94px;
   }
 `;

@@ -14,8 +14,9 @@ const TitleCardContainer = styled(Container)`
 `;
 
 const TitleCardSubContainer = styled.div`
-  @media ${device.desktop} {
-    width: 75%;
+  width: 75%;
+  @media ${device.tablet} {
+    width: auto;
   }
 `;
 
@@ -41,18 +42,20 @@ const TitleCardOverline = styled.p`
 `;
 
 const TitleCardHeading = styled.h1`
-  font-size: 50px;
+  font-size: 75px;
   margin-top: 40px;
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.03em;
 
   @media ${device.laptop} {
-    font-size: 75px;
+    font-size: 50px;
+    width: 75%;
   }
 
   @media ${device.mobile} {
     font-size: 35px;
+    width: auto;
   }
 `;
 
