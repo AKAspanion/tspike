@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import styled from 'styled-components';
 
-import { Layout, QuoteCard, TitleCard } from '../components/';
+import { Container, Layout, Parallax, QuoteCard, TitleCard } from '../components/';
 import device from '../theme/device';
 
 const overline = 'HELLO. NICE TO MEET YOU.';
@@ -37,6 +37,62 @@ const QuoteLeftMobile = styled.div`
   }
 `;
 
+const ThisIsUsContainer = styled(Container)`
+  padding: ${({ theme }) => theme.padding};
+  padding-top: calc(${({ theme }) => theme.padding} * 2);
+`;
+
+const ThisIsUs = styled.h2`
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.text.light};
+`;
+
+const ThisIsUsHr = styled.hr`
+  width: 90px;
+  margin-top: 27px;
+  border-bottom-color: ${({ theme }) => theme.colors.primary};
+`;
+
+const ThisisUsText = styled.div`
+  width: 80%;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -0.03em;
+  color: ${({ theme }) => theme.text.light};
+  margin-top: ${({ theme }) => theme.padding};
+`;
+
+const ThisIsUsImageContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: ${({ theme }) => theme.padding};
+  padding-top: calc(${({ theme }) => theme.padding} * 2);
+`;
+
+const ThisIsUsImage = styled.div`
+  width: calc(calc(100% / 3) - calc(${({ theme }) => theme.padding} / 1.5));
+`;
+
+const thisIsUsImages = [
+  {
+    id: 1,
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2020/04/WhatWeDo-uai-1462x1097-uai-1032x774.jpeg',
+  },
+  {
+    id: 2,
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2020/10/360_mood-uai-1032x774.jpg',
+  },
+  {
+    id: 3,
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2019/08/Telstra-and-Tigerspike-working-together-uai-1032x774.jpg',
+  },
+];
+
 export default function Home() {
   return (
     <Layout>
@@ -71,6 +127,21 @@ export default function Home() {
           </QuoteRight>
         }
       />
+      <ThisIsUsContainer>
+        <ThisIsUs>This is us</ThisIsUs>
+        <ThisIsUsHr />
+        <ThisisUsText>
+          Concentrix Tigerspike is the experience and service design practice of Concentrix, a
+          global leader in CX, customer engagement and digital transformation.{' '}
+        </ThisisUsText>
+      </ThisIsUsContainer>
+      <ThisIsUsImageContainer>
+        {thisIsUsImages.map(({ id, img }) => (
+          <ThisIsUsImage key={id}>
+            <Parallax img={img} speed={0.5} />
+          </ThisIsUsImage>
+        ))}
+      </ThisIsUsImageContainer>
     </Layout>
   );
 }

@@ -10,6 +10,7 @@ import { Flex } from '.';
 
 const HeaderMain = styled.header`
   width: 100%;
+  z-index: 100;
   padding: 0px 36px;
   background: ${({ theme }) => theme.colors.white};
   @media ${device.tablet} {
