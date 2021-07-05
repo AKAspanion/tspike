@@ -2,7 +2,7 @@ import Head from 'next/head';
 import styled from 'styled-components';
 
 import { Container, Layout, Parallax, QuoteCard, TitleCard, VideoBanner } from '../components/';
-import { indexNavItems, thisIsUsImages } from '../constants';
+import { navItems, thisIsUsImages } from '../constants';
 import device from '../theme/device';
 
 const overline = 'HELLO. NICE TO MEET YOU.';
@@ -210,7 +210,7 @@ export default function Home() {
       </ThisIsUsImageContainer>
       <IndexNavWrapper>
         <IndexNav>
-          {indexNavItems.map(({ id, title, desc, link }) => (
+          {navItems.map(({ id, title, desc, link }) => (
             <IndexNavCard key={id}>
               <IndexNavTitle>{title}</IndexNavTitle>
               <IndexNavDesc>{desc}</IndexNavDesc>

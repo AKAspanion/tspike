@@ -1,9 +1,12 @@
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { HamburgerSqueeze } from 'react-animated-burgers';
 import { FaChevronRight } from 'react-icons/fa';
 import styled from 'styled-components';
 
+import { navItems } from '../constants/';
 import device from '../theme/device';
 import { Flex } from '.';
 
@@ -31,6 +34,7 @@ const HeaderContainer = styled(Flex)`
 `;
 
 const LogoContainer = styled.div`
+  cursor: pointer;
   padding: 17px var(--pad) 11px 0px;
 `;
 
@@ -89,6 +93,10 @@ const NavLi = styled.li`
   }
 `;
 
+const NavLiActive = styled(NavLi)`
+  color: ${({ theme }) => theme.colors.primary};
+`;
+
 const NavMobileLi = styled(NavLi)`
   padding: 9px 0px !important;
   display: flex;
@@ -106,16 +114,9 @@ const Hamburger = styled.div`
   transform: scale(0.5);
 `;
 
-const navData = [
-  { id: 1, name: 'What We Do' },
-  { id: 2, name: 'About Us' },
-  { id: 3, name: 'Work' },
-  { id: 4, name: 'Insights' },
-  { id: 5, name: 'Careers' },
-  { id: 56, name: 'Contact' },
-];
-
 export default function Header() {
+  const router = useRouter();
+
   const [onTop, setOnTop] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
 
@@ -136,18 +137,28 @@ export default function Header() {
       <HeaderMain style={scrollStyles}>
         <HeaderContainer>
           <LogoContainer>
-            <img
-              src="https://www-cdn.tigerspike.com/wp-content/uploads/2020/11/ConcentrixTigerspike_Logo_Standard-Dark-Transparent.svg"
-              alt="logo"
-              width="164"
-              height="45"
-            />
+            <Link href="/">
+              <img
+                src="https://www-cdn.tigerspike.com/wp-content/uploads/2020/11/ConcentrixTigerspike_Logo_Standard-Dark-Transparent.svg"
+                alt="logo"
+                width="164"
+                height="45"
+              />
+            </Link>
           </LogoContainer>
           <NavContainer>
             <NavUl>
-              {navData.map(({ id, name }) => (
-                <NavLi key={id}>{name}</NavLi>
-              ))}
+              {navItems.map(({ id, name, href }) =>
+                router.pathname === href ? (
+                  <NavLiActive>
+                    <Link href={href}>{name}</Link>
+                  </NavLiActive>
+                ) : (
+                  <NavLi key={id}>
+                    <Link href={href}>{name}</Link>
+                  </NavLi>
+                )
+              )}
             </NavUl>
           </NavContainer>
           <TabletVisible>
@@ -158,7 +169,7 @@ export default function Header() {
         </HeaderContainer>
         <NavMobileContainer style={{ height: navOpen ? '272px' : '0px' }}>
           <NavMobileUl>
-            {navData.map(({ id, name }) => (
+            {navItems.map(({ id, name }) => (
               <NavMobileLi key={id}>
                 <span>{name}</span>
                 <FaChevronRight size={8} />
