@@ -91,6 +91,7 @@ export default function WhatWeDo() {
       <CatalystCard>
         <CatalystCardItem>
           <Parallax
+            speed={0.8}
             height={630}
             img="https://www-cdn.tigerspike.com/wp-content/uploads/2019/09/TS_Execution.jpg"
           />
@@ -99,6 +100,7 @@ export default function WhatWeDo() {
       <CatalystCardAlt>
         <CatalystCardItem>
           <Parallax
+            speed={0.8}
             height={500}
             img="https://www-cdn.tigerspike.com/wp-content/uploads/2019/09/TS_Execution.jpg"
           />
