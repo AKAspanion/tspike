@@ -129,7 +129,12 @@ export default function Footer() {
       <FooterContainer>
         <FooterDetails>
           <FooterTitleWrapper>
-            <Image src="/logo.svg" alt="logo" width="152" height="42" />
+            <img
+              src="https://www-cdn.tigerspike.com/wp-content/uploads/2020/11/ConcentrixTigerspike_Logo_Standard-White-Transparent.svg"
+              alt="logo"
+              width="152"
+              height="42"
+            />
             <FooterTitle>We design and build experiences people love to use.</FooterTitle>
           </FooterTitleWrapper>
           <FooterLinksWrapper>

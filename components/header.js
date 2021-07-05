@@ -1,5 +1,4 @@
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
-import Image from 'next/image';
 import { useState } from 'react';
 import { HamburgerSqueeze } from 'react-animated-burgers';
 import { FaChevronRight } from 'react-icons/fa';
@@ -137,7 +136,12 @@ export default function Header() {
       <HeaderMain style={scrollStyles}>
         <HeaderContainer>
           <LogoContainer>
-            <Image src="/logo-dark.svg" alt="logo" width="164" height="45" />
+            <img
+              src="https://www-cdn.tigerspike.com/wp-content/uploads/2020/11/ConcentrixTigerspike_Logo_Standard-Dark-Transparent.svg"
+              alt="logo"
+              width="164"
+              height="45"
+            />
           </LogoContainer>
           <NavContainer>
             <NavUl>

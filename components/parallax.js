@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const ParallaxImageContainer = styled.div`
@@ -32,7 +32,7 @@ const ParallaxImageImg = styled.img`
 export default function ParallaxImage({ img, alt, speed = 0.25, height = 300 }) {
   const [parallax, setParallax] = useState(0);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     document.addEventListener('scroll', onScroll);
 
     return () => document.removeEventListener('scroll', onScroll);

@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 import device from '../theme/device';
@@ -47,7 +47,7 @@ export default function VideoBanner({ url }) {
   const ref = useRef();
   const [parallax, setParallax] = useState(8);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     document.addEventListener('scroll', onScroll);
 
     return () => document.removeEventListener('scroll', onScroll);
