@@ -4,21 +4,23 @@ import { Container } from '../components/';
 import { flex } from '../mixins';
 import device from '../theme/device';
 
-const QuoteWarpper = styled.div`
+const QuoteWrapper = styled.div`
+  --pad: ${({ theme }) => theme.padding};
   background: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.white};
 `;
 
 const QuoteContainer = styled(Container)`
   ${flex}
-  padding: calc(${({ theme }) => theme.padding} * 2) ${({ theme }) => theme.padding};
+  justify-content: space-between;
+  padding: calc(var(--pad) * 2) var(--pad);
   @media ${device.laptop} {
     flex-wrap: wrap;
   }
 `;
 
 const QuoteItem = styled.div`
-  width: 50%;
+  width: calc(50% - 36px);
   @media ${device.laptop} {
     width: 100%;
   }
@@ -41,7 +43,6 @@ const QuoteItem2 = styled(QuoteItem)`
   font-size: 18px;
   font-weight: 300;
   line-height: 1.75;
-  padding-left: calc(${({ theme }) => theme.padding} / 2);
   font-family: ${({ theme }) => theme.fontFamily.primary};
   @media ${device.laptop} {
     padding-left: 0px;
@@ -50,11 +51,11 @@ const QuoteItem2 = styled(QuoteItem)`
 
 export default function QuoteCard({ quoteLeft, quoteRight }) {
   return (
-    <QuoteWarpper>
+    <QuoteWrapper>
       <QuoteContainer>
         <QuoteItem1>{quoteLeft}</QuoteItem1>
         <QuoteItem2>{quoteRight}</QuoteItem2>
       </QuoteContainer>
-    </QuoteWarpper>
+    </QuoteWrapper>
   );
 }

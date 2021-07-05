@@ -3,9 +3,17 @@ import styled from 'styled-components';
 
 import device from '../theme/device';
 
+const VideoBannerTop = styled.div`
+  background: ${({ theme }) => theme.bg.primary};
+  height: var(--pad);
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+`;
+
 const VideoBannerWrapper = styled.div`
   --pad: ${({ theme }) => theme.padding};
-  margin-top: var(--pad);
+  position: relative;
   display: flex;
   @media ${device.mobile} {
     margin-top: 0px;
@@ -16,13 +24,21 @@ const VideoBannerVideo = styled.div`
   margin-right: var(--pad);
   overflow: hidden;
   width: calc(100% - 210px);
-  video {
+  video,
+  img {
     width: 100%;
     height: 100%;
 
     @media ${device.mobile} {
       width: auto;
       height: 300px;
+    }
+  }
+
+  img {
+    @media ${device.mobile} {
+      width: 100%;
+      height: auto;
     }
   }
 
@@ -43,7 +59,7 @@ const VideoBannerArtboard = styled.div`
   }
 `;
 
-export default function VideoBanner({ url }) {
+export default function VideoBanner({ url, img }) {
   const ref = useRef();
   const [parallax, setParallax] = useState(8);
 
@@ -68,16 +84,20 @@ export default function VideoBanner({ url }) {
     windowScrollHeight = doc.scrollHeight;
     percentScrolled = scrollTop / (windowScrollHeight - windowHeight);
 
-    parallax = Math.round(parallaxDist * percentScrolled * 0.5);
+    parallax = Math.round(parallaxDist * percentScrolled * 0.8);
     setParallax(parallax + 8);
   };
 
   return (
     <VideoBannerWrapper>
+      <VideoBannerTop />
       <VideoBannerVideo ref={ref}>
-        <video loop muted autoPlay style={{ transform: `translateY(${parallax}px)` }}>
-          <source src={url} type="video/mp4" />
-        </video>
+        {url && (
+          <video loop muted autoPlay style={{ transform: `translateY(${parallax}px)` }}>
+            <source src={url} type="video/mp4" />
+          </video>
+        )}
+        {img && <img alt="banner" src={img} style={{ transform: `translateY(${parallax}px)` }} />}
       </VideoBannerVideo>
       <VideoBannerArtboard></VideoBannerArtboard>
     </VideoBannerWrapper>
