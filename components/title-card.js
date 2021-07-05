@@ -4,6 +4,7 @@ import device from '../theme/device';
 import Container from './styled/container';
 
 const TitleCardWrapper = styled.div`
+  --pad: ${({ theme }) => theme.padding};
   color: ${({ theme }) => theme.text.primary};
   background: ${({ theme }) => theme.bg.secondary};
   @media ${device.mobile} {
@@ -13,7 +14,7 @@ const TitleCardWrapper = styled.div`
 
 const TitleCardContainer = styled(Container)`
   text-align: left;
-  padding: ${({ theme }) => theme.padding};
+  padding: var(--pad);
 `;
 
 const TitleCardSubContainer = styled.div`
@@ -31,7 +32,7 @@ const TitleCardEmpty = styled.div`
 `;
 
 const TitleCardEmptyBottom = styled(TitleCardEmpty)`
-  padding-top: 18px;
+  padding-top: calc(var(--pad) / 2);
 `;
 
 const TitleCardOverline = styled.p`
@@ -39,8 +40,8 @@ const TitleCardOverline = styled.p`
   line-height: 1.2;
   font-weight: 500;
   letter-spacing: 0.2em;
+  margin-top: var(--pad);
   text-transform: uppercase;
-  margin-top: ${({ theme }) => theme.padding};
   color: ${({ theme }) => theme.colors.primary};
   @media ${device.mobile} {
     margin-top: 4px;
@@ -70,7 +71,7 @@ const TitleCardSubHeading = styled.h2`
   font-size: 18px;
   font-weight: 300;
   line-height: 31.5px;
-  margin-top: ${({ theme }) => theme.padding};
+  margin-top: var(--pad);
   color: ${({ theme }) => theme.text.light};
 `;
 

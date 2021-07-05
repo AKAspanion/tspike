@@ -9,9 +9,10 @@ import device from '../theme/device';
 import { Flex } from '.';
 
 const HeaderMain = styled.header`
+  --pad: ${({ theme }) => theme.padding};
   width: 100%;
   z-index: 100;
-  padding: 0px 36px;
+  padding: 0px var(--pad);
   background: ${({ theme }) => theme.colors.white};
   @media ${device.laptop} {
     box-shadow: none !important;
@@ -31,7 +32,7 @@ const HeaderContainer = styled(Flex)`
 `;
 
 const LogoContainer = styled.div`
-  padding: 17px 36px 11px 0px;
+  padding: 17px var(--pad) 11px 0px;
 `;
 
 const NavContainer = styled.nav`
@@ -66,7 +67,7 @@ const NavUl = styled.ul`
 
 const NavMobileUl = styled(NavUl)`
   flex-direction: column;
-  padding: 28px 36px 8px 36px;
+  padding: 28px var(--pad) 8px var(--pad);
 `;
 
 const NavLi = styled.li`
