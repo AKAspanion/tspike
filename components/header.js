@@ -150,7 +150,7 @@ export default function Header() {
             <NavUl>
               {navItems.map(({ id, name, href }) =>
                 router.pathname === href ? (
-                  <NavLiActive>
+                  <NavLiActive key={id}>
                     <Link href={href}>{name}</Link>
                   </NavLiActive>
                 ) : (

@@ -39,6 +39,20 @@ const QuoteRight = styled.div`
   }
 `;
 
+const CatalystCard = styled.div`
+  display: flex;
+  justify-content: space-between;
+  --pad: ${({ theme }) => theme.padding};
+  padding: calc(var(--pad) * 2);
+`;
+
+const CatalystCardItem = styled.div`
+  width: calc(50% - calc(var(--pad)));
+`;
+
+const CatalystCardAlt = styled(CatalystCard)`
+  flex-direction: row-reverse;
+`;
 export default function WhatWeDo() {
   return (
     <Layout>
@@ -70,9 +84,26 @@ export default function WhatWeDo() {
         }
       />
       <Parallax
+        speed={0.5}
         height={700}
         img="https://www-cdn.tigerspike.com/wp-content/uploads/2020/02/DSC3864-1.jpg"
       />
+      <CatalystCard>
+        <CatalystCardItem>
+          <Parallax
+            height={630}
+            img="https://www-cdn.tigerspike.com/wp-content/uploads/2019/09/TS_Execution.jpg"
+          />
+        </CatalystCardItem>
+      </CatalystCard>
+      <CatalystCardAlt>
+        <CatalystCardItem>
+          <Parallax
+            height={500}
+            img="https://www-cdn.tigerspike.com/wp-content/uploads/2019/09/TS_Execution.jpg"
+          />
+        </CatalystCardItem>
+      </CatalystCardAlt>
     </Layout>
   );
 }

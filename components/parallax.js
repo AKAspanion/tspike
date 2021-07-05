@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 const ParallaxImageContainer = styled.div`
@@ -29,39 +29,73 @@ const ParallaxImageImg = styled.img`
   transition: opacity 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
 `;
 
-export default function ParallaxImage({ img, alt, speed = 0.25, height = 300 }) {
+export default function ParallaxImage({ img, alt, speed = 0.5, height = 300 }) {
+  const iRef = useRef();
+  const cRef = useRef();
   const [parallax, setParallax] = useState(0);
 
   useEffect(() => {
-    document.addEventListener('scroll', onScroll);
+    updateSize();
 
-    return () => document.removeEventListener('scroll', onScroll);
-  });
+    document.addEventListener('scroll', onScroll);
+    window.addEventListener('resize', updateSize);
+
+    return () => {
+      document.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', updateSize);
+    };
+  }, []);
+
+  const updateSize = () => {
+    try {
+      const { width, height } = cRef.current.getBoundingClientRect();
+      const { width: imgWidth, height: imgHeight } = iRef.current.getBoundingClientRect();
+
+      const widthRatio = width / imgWidth;
+      const heightRatio = height / imgHeight;
+
+      if (widthRatio > heightRatio) {
+        iRef.current.style.width = `${width * 1.4}px`;
+        iRef.current.style.height = 'auto';
+      } else {
+        iRef.current.style.height = `${height * 1.4}px`;
+        iRef.current.style.width = 'auto';
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const onScroll = () => {
-    const parallaxDist = height;
-    let parallax = 0;
-    let scrollTop = 0;
-    let windowHeight = 0;
-    let percentScrolled = 0;
-    let windowScrollHeight = 1;
+    try {
+      const imgHeight = iRef.current.offsetHeight;
+      const parallaxDist = imgHeight - height;
+      let parallax = 0;
+      let scrollTop = 0;
+      let windowHeight = 0;
+      let percentScrolled = 0;
+      let windowScrollHeight = 1;
 
-    const doc = document.documentElement || document.body;
-    scrollTop = doc.scrollTop;
-    windowHeight = doc.clientHeight;
-    windowScrollHeight = doc.scrollHeight;
-    percentScrolled = scrollTop / (windowScrollHeight - windowHeight);
+      const doc = document.documentElement || document.body;
+      scrollTop = doc.scrollTop;
+      windowHeight = doc.clientHeight;
+      windowScrollHeight = doc.scrollHeight;
+      percentScrolled = scrollTop / (windowScrollHeight - windowHeight);
 
-    parallax = Math.round(parallaxDist * percentScrolled * speed);
-    setParallax(parallax);
+      parallax = Math.round(parallaxDist * percentScrolled * percentScrolled * speed);
+      setParallax(parallax);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
     <ParallaxContainer style={{ height: `${height}px` }}>
-      <ParallaxImageContainer>
+      <ParallaxImageContainer ref={cRef}>
         <ParallaxImageImg
           alt={alt}
           src={img}
+          ref={iRef}
           style={{ transform: `translate(-50%, ${parallax}px)` }}
         />
       </ParallaxImageContainer>
