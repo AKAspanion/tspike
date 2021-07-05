@@ -55,8 +55,6 @@ export default function ParallaxImage({ img, alt, speed = 0.25, height = 300 }) 
 
     parallax = Math.round(parallaxDist * percentScrolled * speed);
     setParallax(parallax);
-
-    console.log(parallax);
   };
 
   return (

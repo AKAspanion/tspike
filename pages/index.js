@@ -65,6 +65,11 @@ const ThisisUsText = styled.div`
   letter-spacing: -0.03em;
   color: ${({ theme }) => theme.text.light};
   margin-top: ${({ theme }) => theme.padding};
+  @media ${device.laptop} {
+    width: 100%;
+    font-size: 28px;
+    flex-direction: column;
+  }
 `;
 
 const ThisIsUsImageContainer = styled.div`
@@ -72,10 +77,20 @@ const ThisIsUsImageContainer = styled.div`
   justify-content: space-between;
   padding: ${({ theme }) => theme.padding};
   padding-top: calc(${({ theme }) => theme.padding} * 2);
+  @media ${device.laptop} {
+    flex-direction: column;
+  }
+  @media ${device.mobile} {
+    display: none;
+  }
 `;
 
 const ThisIsUsImage = styled.div`
   width: calc(calc(100% / 3) - calc(${({ theme }) => theme.padding} / 1.5));
+  @media ${device.laptop} {
+    width: 100%;
+    margin-bottom: ${({ theme }) => theme.padding};
+  }
 `;
 
 const thisIsUsImages = [

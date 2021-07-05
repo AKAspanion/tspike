@@ -6,11 +6,14 @@ import Container from './styled/container';
 const TitleCardWrapper = styled.div`
   color: ${({ theme }) => theme.text.primary};
   background: ${({ theme }) => theme.bg.secondary};
+  @media ${device.mobile} {
+    background: ${({ theme }) => theme.bg.primary};
+  }
 `;
 
 const TitleCardContainer = styled(Container)`
   text-align: left;
-  padding: 36px 36px 36px 36px;
+  padding: ${({ theme }) => theme.padding};
 `;
 
 const TitleCardSubContainer = styled.div`
@@ -32,13 +35,16 @@ const TitleCardEmptyBottom = styled(TitleCardEmpty)`
 `;
 
 const TitleCardOverline = styled.p`
-  margin-top: 36px;
   font-size: 14px;
   line-height: 1.2;
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
+  margin-top: ${({ theme }) => theme.padding};
   color: ${({ theme }) => theme.colors.primary};
+  @media ${device.mobile} {
+    margin-top: 4px;
+  }
 `;
 
 const TitleCardHeading = styled.h1`
@@ -54,16 +60,17 @@ const TitleCardHeading = styled.h1`
   }
 
   @media ${device.mobile} {
+    margin-top: 18px;
     font-size: 35px;
     width: auto;
   }
 `;
 
 const TitleCardSubHeading = styled.h2`
-  margin-top: 36px;
   font-size: 18px;
   font-weight: 300;
   line-height: 31.5px;
+  margin-top: ${({ theme }) => theme.padding};
   color: ${({ theme }) => theme.text.light};
 `;
 

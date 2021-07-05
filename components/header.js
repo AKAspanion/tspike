@@ -17,6 +17,9 @@ const HeaderMain = styled.header`
     box-shadow: none !important;
     padding-right: 4px;
   }
+  @media ${device.mobile} {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
 `;
 
 const HeaderContainer = styled(Flex)`
