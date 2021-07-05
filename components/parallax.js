@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const ParallaxImageContainer = styled.div`
@@ -30,7 +30,6 @@ const ParallaxImageImg = styled.img`
 `;
 
 export default function ParallaxImage({ img, alt, speed = 0.25, height = 300 }) {
-  const ref = useRef();
   const [parallax, setParallax] = useState(0);
 
   useLayoutEffect(() => {
@@ -59,7 +58,7 @@ export default function ParallaxImage({ img, alt, speed = 0.25, height = 300 }) 
 
   return (
     <ParallaxContainer style={{ height: `${height}px` }}>
-      <ParallaxImageContainer ref={ref} onScroll={() => onScroll()}>
+      <ParallaxImageContainer>
         <ParallaxImageImg
           alt={alt}
           src={img}

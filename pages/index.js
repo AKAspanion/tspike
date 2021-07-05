@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import styled from 'styled-components';
 
-import { Container, Layout, Parallax, QuoteCard, TitleCard } from '../components/';
+import { Container, Layout, Parallax, QuoteCard, TitleCard, VideoBanner } from '../components/';
 import { indexNavItems, thisIsUsImages } from '../constants';
 import device from '../theme/device';
 
@@ -166,6 +166,7 @@ export default function Home() {
       </Head>
 
       <TitleCard overline={overline} heading={heading} />
+      <VideoBanner url="https://www-cdn.tigerspike.com/wp-content/uploads/2019/10/Homepage-Video-muted.mp4?_=1" />
       <QuoteCard
         quoteLeft={
           <>
