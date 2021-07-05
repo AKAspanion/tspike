@@ -35,6 +35,18 @@ const TitleCardEmptyBottom = styled(TitleCardEmpty)`
   padding-top: calc(var(--pad) / 2);
 `;
 
+const TitleCardEmptyTablet = styled.div`
+  display: none;
+  padding-top: var(--pad);
+  @media ${device.tablet} {
+    display: block;
+  }
+
+  @media ${device.mobile} {
+    display: none;
+  }
+`;
+
 const TitleCardOverline = styled.p`
   font-size: 14px;
   line-height: 1.2;
@@ -57,7 +69,6 @@ const TitleCardHeading = styled.h1`
 
   @media ${device.laptop} {
     font-size: 50px;
-    width: 75%;
   }
 
   @media ${device.mobile} {
@@ -89,6 +100,7 @@ export default function TitleCard({ overline, heading, subheading }) {
               <TitleCardEmptyBottom />
             </>
           )}
+          <TitleCardEmptyTablet />
         </TitleCardSubContainer>
       </TitleCardContainer>
     </TitleCardWrapper>
