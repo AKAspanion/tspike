@@ -13,7 +13,7 @@ const HeaderMain = styled.header`
   z-index: 100;
   padding: 0px 36px;
   background: ${({ theme }) => theme.colors.white};
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     box-shadow: none !important;
     padding-right: 4px;
   }

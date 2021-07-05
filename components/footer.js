@@ -7,15 +7,16 @@ import Container from './styled/container';
 import Flex from './styled/flex';
 
 const FooterWrapper = styled.footer`
+  --pad: ${({ theme }) => theme.padding};
   color: ${({ theme }) => theme.colors.white};
   background: ${({ theme }) => theme.bg.dark};
 `;
 
 const FooterContainer = styled(Container)`
   text-align: left;
-  padding: 0px 36px;
-  padding-top: 72px;
+  padding: 0px var(--pad);
   padding-bottom: 33px;
+  padding-top: calc(var(--pad) * 2);
 `;
 
 const Copyright = styled.div`
@@ -48,7 +49,7 @@ const FooterLinksWrapper = styled(Flex)`
 `;
 
 const FooterDetails = styled(Flex)`
-  padding-bottom: 36px;
+  padding-bottom: var(--pad);
 
   @media ${device.mobile} {
     flex-direction: column;
@@ -63,12 +64,12 @@ const FooterTitle = styled.div`
   line-height: 21.6px;
 
   @media ${device.tablet} {
-    padding: 36px 36px 18px 0px;
+    padding: var(--pad) var(--pad) calc(var(--pad) / 2) 0px;
   }
 `;
 
 const IconLink = styled.a`
-  margin-left: 36px;
+  margin-left: var(--pad);
   cursor: pointer;
   :first-child {
     @media ${device.mobile} {
@@ -84,7 +85,7 @@ const IconLink = styled.a`
   }
 
   @media ${device.mobile} {
-    margin-left: 18px;
+    margin-left: calc(var(--pad) / 2);
     color: ${({ theme }) => theme.colors.primary};
   }
 `;
@@ -96,14 +97,18 @@ const CopyrightWrapper = styled(Flex)`
   }
 `;
 
-const HideInMobile = styled.span`
+const HideInMobile = styled.div`
+  max-height: var(--pad);
   @media ${device.mobile} {
     display: none;
   }
 `;
 
-const PrivacyText = styled(HideInMobile)`
+const PrivacyText = styled.span`
   color: #999999;
+  @media ${device.mobile} {
+    display: none;
+  }
 `;
 
 const PrivacyMobileText = styled.div`

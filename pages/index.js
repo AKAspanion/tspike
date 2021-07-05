@@ -2,6 +2,7 @@ import Head from 'next/head';
 import styled from 'styled-components';
 
 import { Container, Layout, Parallax, QuoteCard, TitleCard } from '../components/';
+import { indexNavItems, thisIsUsImages } from '../constants';
 import device from '../theme/device';
 
 const overline = 'HELLO. NICE TO MEET YOU.';
@@ -93,20 +94,69 @@ const ThisIsUsImage = styled.div`
   }
 `;
 
-const thisIsUsImages = [
-  {
-    id: 1,
-    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2020/04/WhatWeDo-uai-1462x1097-uai-1032x774.jpeg',
-  },
-  {
-    id: 2,
-    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2020/10/360_mood-uai-1032x774.jpg',
-  },
-  {
-    id: 3,
-    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2019/08/Telstra-and-Tigerspike-working-together-uai-1032x774.jpg',
-  },
-];
+const IndexNavWrapper = styled.div`
+  background: ${({ theme }) => theme.bg.secondary};
+`;
+
+const IndexNav = styled(Container)`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  --pad: ${({ theme }) => theme.padding};
+  padding: calc(var(--pad) * 2) var(--pad);
+`;
+const IndexNavCard = styled.div`
+  :nth-child(4),
+  :nth-child(5),
+  :nth-child(6) {
+    padding-top: calc(var(--pad) * 2);
+  }
+  width: calc(calc(100% / 3) - calc(var(--pad) * 1.25));
+
+  @media ${device.laptop} {
+    width: 100%;
+    margin-bottom: var(--pad);
+    :nth-child(4),
+    :nth-child(5),
+    :nth-child(6) {
+      padding-top: 0px;
+    }
+  }
+`;
+const IndexNavTitle = styled.h2`
+  font-size: 30px;
+  line-height: 1.5;
+  letter-spacing: -0.03em;
+  font-family: ${({ theme }) => theme.fontFamily.secondary};
+`;
+const IndexNavDesc = styled.p`
+  font-size: 18px;
+  line-height: 1.75;
+  font-weight: 300;
+  color: ${({ theme }) => theme.text.light};
+  margin-top: calc(var(--pad) / 2);
+
+  @media ${device.mobile} {
+    margin-top: var(--pad);
+  }
+`;
+const IndexNavHr = styled.hr`
+  border-top-width: 2px;
+  margin-top: calc(var(--pad) / 2);
+  @media ${device.mobile} {
+    margin-top: var(--pad);
+    margin-bottom: calc(var(--pad) / 2);
+  }
+`;
+const IndexNavLink = styled.a`
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.colors.primary};
+`;
 
 export default function Home() {
   return (
@@ -157,6 +207,21 @@ export default function Home() {
           </ThisIsUsImage>
         ))}
       </ThisIsUsImageContainer>
+      <IndexNavWrapper>
+        <IndexNav>
+          {indexNavItems.map(({ id, title, desc, link }) => (
+            <IndexNavCard key={id}>
+              <IndexNavTitle>{title}</IndexNavTitle>
+              <IndexNavDesc>{desc}</IndexNavDesc>
+              <IndexNavHr />
+              <IndexNavLink>
+                {link}
+                <strong> →</strong>
+              </IndexNavLink>
+            </IndexNavCard>
+          ))}
+        </IndexNav>
+      </IndexNavWrapper>
     </Layout>
   );
 }
