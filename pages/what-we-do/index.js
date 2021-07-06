@@ -42,6 +42,7 @@ const QuoteRight = styled.div`
 
 const CatalystCard = styled.div`
   display: flex;
+  align-items: center;
   justify-content: space-between;
   --pad: ${({ theme }) => theme.padding};
   background: ${({ theme }) => theme.bg.secondary};
@@ -139,7 +140,7 @@ export default function WhatWeDo() {
             <div key={id}>
               <span>&nbsp;</span>
               <CatalystCardDescTitle>{title}</CatalystCardDescTitle>
-              <CatalystCardDesc>{subtitle}</CatalystCardDesc>
+              <CatalystCardDesc dangerouslySetInnerHTML={{ __html: subtitle }} />
             </div>
           ))}
         </CatalystCardItemText>

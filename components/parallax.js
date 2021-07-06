@@ -77,16 +77,16 @@ export default function ParallaxImage({ img, alt, speed = 0.5, height = 300 }) {
       const parallaxDist = imgHeight - height;
 
       let parallax = 0;
-      let scrollTop = 0;
-      let windowHeight = 0;
-      let percentScrolled = 0;
-      let windowScrollHeight = 1;
+      // let scrollTop = 0;
+      // let windowHeight = 0;
+      // let percentScrolled = 0;
+      // let windowScrollHeight = 1;
 
-      const doc = document.documentElement || document.body;
-      scrollTop = doc.scrollTop;
-      windowHeight = doc.clientHeight;
-      windowScrollHeight = doc.scrollHeight;
-      percentScrolled = scrollTop / (windowScrollHeight - windowHeight);
+      // const doc = document.documentElement || document.body;
+      // scrollTop = doc.scrollTop;
+      // windowHeight = doc.clientHeight;
+      // windowScrollHeight = doc.scrollHeight;
+      // percentScrolled = scrollTop / (windowScrollHeight - windowHeight);
 
       const percentageSeen = () => {
         const viewportHeight = window.innerHeight;
@@ -102,7 +102,7 @@ export default function ParallaxImage({ img, alt, speed = 0.5, height = 300 }) {
 
       const ownPercentScrolled = percentageSeen();
 
-      parallax = Math.round(parallaxDist * percentScrolled * ownPercentScrolled * speed);
+      parallax = Math.round(parallaxDist * ownPercentScrolled * speed);
 
       setParallax(parallax);
     } catch (error) {
