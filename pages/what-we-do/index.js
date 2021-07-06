@@ -1,7 +1,15 @@
 import Head from 'next/head';
 import styled from 'styled-components';
 
-import { Container, Layout, Parallax, QuoteCard, TitleCard, VideoBanner } from '../../components/';
+import {
+  ContactCard,
+  Container,
+  Layout,
+  Parallax,
+  QuoteCard,
+  TitleCard,
+  VideoBanner,
+} from '../../components/';
 import { catalystHeroItems, catalystItems } from '../../constants';
 import useWindowReSize from '../../hooks/useWindowReSize';
 import { headingText, subheadingText } from '../../mixins/';
@@ -328,6 +336,7 @@ export default function WhatWeDo() {
           <CatalystCard key={item.id}>{getCardItem(item)}</CatalystCard>
         )
       )}
+      <ContactCard></ContactCard>
     </Layout>
   );
 }
