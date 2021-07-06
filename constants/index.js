@@ -155,7 +155,7 @@ export const catalystItems = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     left: true,
     height: 500,
     head: 'Transfer',
@@ -172,3 +172,18 @@ export const catalystItems = [
     ],
   },
 ];
+
+export const catalystHeroItems = {
+  details: [
+    'Some of the world’s largest brands work with us to achieve their most important experience goals.',
+    'No matter what you’re looking to achieve, there are ways we can get you there.',
+  ],
+  list: [
+    'Market Share.',
+    'The Right KPIs.',
+    'Cost Reduction.',
+    'Experience Innovation.',
+    'Culture.',
+    'Capability Growth.',
+  ],
+};

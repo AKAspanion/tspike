@@ -1,8 +1,9 @@
 import Head from 'next/head';
 import styled from 'styled-components';
 
-import { Layout, Parallax, QuoteCard, TitleCard, VideoBanner } from '../../components/';
-import { catalystItems } from '../../constants';
+import { Container, Layout, Parallax, QuoteCard, TitleCard, VideoBanner } from '../../components/';
+import { catalystHeroItems, catalystItems } from '../../constants';
+import useWindowReSize from '../../hooks/useWindowReSize';
 import { headingText, subheadingText } from '../../mixins/';
 import device from '../../theme/device';
 
@@ -122,12 +123,126 @@ const CatalystCardDesc = styled(CatalystCardSubHeading)`
   margin-top: 0;
 `;
 
+const CatalystSummaryCard = styled(Container)`
+  display: flex;
+  flex-wrap: wrap;
+  --pad: ${({ theme }) => theme.padding};
+  padding: calc(var(--pad) * 2) var(--pad);
+  div {
+    padding: 0px;
+
+    :nth-child(1),
+    :nth-child(2) {
+      margin-bottom: calc(var(--pad) * 2);
+    }
+
+    :nth-child(2),
+    :nth-child(4) {
+      padding-left: calc(var(--pad) * 2);
+    }
+
+    @media ${device.laptop} {
+      margin-bottom: calc(var(--pad) / 2) !important;
+      :nth-child(2),
+      :nth-child(4) {
+        padding-left: 0px;
+      }
+    }
+  }
+`;
+
+const CatalystHeroCard = styled(CatalystSummaryCard)`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  --pad: ${({ theme }) => theme.padding};
+  padding: calc(var(--pad) * 2) var(--pad);
+  padding-bottom: 0px;
+  @media ${device.laptop} {
+    flex-direction: column;
+  }
+  @media ${device.mobile} {
+    flex-direction: column-reverse;
+  }
+`;
+
+const CatalystHeroLeft = styled.div`
+  width: calc(50% - calc(var(--pad)));
+
+  @media ${device.laptop} {
+    width: 100%;
+  }
+
+  h2 {
+    ${headingText}
+    font-size: 60px;
+    color: ${({ theme }) => theme.text.light};
+
+    @media ${device.laptop} {
+      font-size: 40px;
+    }
+
+    @media ${device.mobile} {
+      font-size: 35px;
+    }
+    span {
+      position: relative;
+      :after {
+        background: ${({ theme }) => theme.colors.primary};
+        position: absolute;
+        content: '';
+        left: 0;
+        width: 100%;
+        height: 12%;
+        bottom: 10px;
+      }
+    }
+  }
+
+  p {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.75;
+    margin-top: var(--pad);
+    color: ${({ theme }) => theme.text.light};
+
+    :nth-child(3) {
+      margin-top: calc(var(--pad) / 2);
+    }
+  }
+`;
+const CatalystHeroRight = styled(CatalystHeroLeft)`
+  padding-left: 0px !important;
+  padding-top: calc(var(--pad) / 3) !important;
+  h4 {
+    ${headingText}
+    font-size: 42px;
+    font-weight: 700;
+    color: #dddddd !important;
+
+    @media ${device.laptop} {
+      font-size: 28px;
+    }
+
+    @media ${device.mobile} {
+      font-size: 33.33px;
+      :last-child {
+        padding-bottom: var(--pad);
+      }
+    }
+  }
+`;
+
 export default function WhatWeDo() {
+  const { width: widowWidth } = useWindowReSize();
+
+  const isMobile = widowWidth < 500;
+
   const getCardItem = ({ left, img, head, height, subhead, subhead2, desc }) => {
     return (
       <>
         <CatalystCardItem>
-          <Parallax speed={0.8} height={height} img={img} />
+          <Parallax speed={isMobile ? 0.5 : 0.7} height={isMobile ? 300 : height} img={img} />
         </CatalystCardItem>
         <CatalystCardItemText style={left ? { paddingLeft: '18%', paddingRight: 0 } : {}}>
           <CatalystCardHeading>
@@ -181,6 +296,31 @@ export default function WhatWeDo() {
         height={700}
         img="https://www-cdn.tigerspike.com/wp-content/uploads/2020/02/DSC3864-1.jpg"
       />
+      <CatalystHeroCard>
+        <CatalystHeroLeft>
+          <h2>
+            Options for <span>every</span> <span>outcome.</span>
+          </h2>
+          {catalystHeroItems.details.map((t, i) => (
+            <p key={i}>{t}</p>
+          ))}
+        </CatalystHeroLeft>
+        <CatalystHeroRight>
+          {catalystHeroItems.list.map((l, i) => (
+            <h4 key={i}>{l}</h4>
+          ))}
+        </CatalystHeroRight>
+      </CatalystHeroCard>
+      <CatalystSummaryCard>
+        {catalystItems.map(({ id, head, subhead }) => (
+          <CatalystCardItemText key={id}>
+            <CatalystCardHeading>
+              <strong>Catalyst</strong> {head}
+            </CatalystCardHeading>
+            <CatalystCardSubHeading>{subhead}</CatalystCardSubHeading>
+          </CatalystCardItemText>
+        ))}
+      </CatalystSummaryCard>
       {catalystItems.map((item) =>
         item.left ? (
           <CatalystCardAlt key={item.id}>{getCardItem(item)}</CatalystCardAlt>

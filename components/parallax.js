@@ -1,5 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
+
+import useWindowReSize from '../hooks/useWindowReSize';
 
 const ParallaxImageContainer = styled.div`
   position: absolute;
@@ -34,20 +36,28 @@ export default function ParallaxImage({ img, alt, speed = 0.5, height = 300 }) {
   const offestRef = useRef();
   const [parallax, setParallax] = useState(0);
 
+  useWindowReSize(
+    useCallback(() => {
+      try {
+        console.log('here');
+        updateSize();
+      } catch (error) {
+        console.log(error);
+      }
+    }, [])
+  );
+
   useEffect(() => {
     try {
-      updateSize();
       offestRef.current = cRef.current.getBoundingClientRect().y;
 
       window.addEventListener('scroll', onScroll);
-      window.addEventListener('resize', updateSize);
     } catch (error) {
       console.log(error);
     }
 
     return () => {
       window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', updateSize);
     };
   }, []);
 
