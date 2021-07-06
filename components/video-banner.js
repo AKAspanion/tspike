@@ -70,22 +70,26 @@ export default function VideoBanner({ url, img }) {
   });
 
   const onScroll = () => {
-    const { height } = ref.current.getBoundingClientRect();
-    const parallaxDist = height / 3;
-    let parallax = 0;
-    let scrollTop = 0;
-    let windowHeight = 0;
-    let percentScrolled = 0;
-    let windowScrollHeight = 1;
+    try {
+      const { height } = ref.current.getBoundingClientRect();
+      const parallaxDist = height / 3;
+      let parallax = 0;
+      let scrollTop = 0;
+      let windowHeight = 0;
+      let percentScrolled = 0;
+      let windowScrollHeight = 1;
 
-    const doc = document.documentElement || document.body;
-    scrollTop = doc.scrollTop;
-    windowHeight = doc.clientHeight;
-    windowScrollHeight = doc.scrollHeight;
-    percentScrolled = scrollTop / (windowScrollHeight - windowHeight);
+      const doc = document.documentElement || document.body;
+      scrollTop = doc.scrollTop;
+      windowHeight = doc.clientHeight;
+      windowScrollHeight = doc.scrollHeight;
+      percentScrolled = scrollTop / (windowScrollHeight - windowHeight);
 
-    parallax = Math.round(parallaxDist * percentScrolled * 0.8);
-    setParallax(parallax + 8);
+      parallax = Math.round(parallaxDist * percentScrolled * 0.8);
+      setParallax(parallax + 8);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

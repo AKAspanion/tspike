@@ -19,3 +19,13 @@ export const justifyStart = css`
 export const justifyBetween = css`
   justify-content: space-between;
 `;
+
+export const headingText = css`
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+`;
+
+export const subheadingText = css`
+  line-height: 1.5;
+  letter-spacing: -0.03em;
+`;

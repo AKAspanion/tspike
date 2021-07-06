@@ -63,3 +63,52 @@ export const navItems = [
     href: '/contact',
   },
 ];
+
+export const catalystItems = [
+  {
+    id: 1,
+    left: false,
+    height: 630,
+    head: 'Complete',
+    subhead: 'When you need the full design and build service.',
+    subhead2:
+      'The end-to-end process to take you from initial idea to fully operational experience.',
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2019/09/TS_Execution.jpg',
+    desc: [
+      {
+        id: 1,
+        title: 'Business Discovery',
+        subtitle:
+          'Identifying your current business problems, prioritising them and creating an actionable roadmap.',
+      },
+      {
+        id: 2,
+        title: 'Experience Definition',
+        subtitle:
+          'Looking at a specific business problem, re-imagining the service design and defining the solution.',
+      },
+      {
+        id: 3,
+        title: 'Design & Build',
+        subtitle:
+          'Creating a detailed design for the solution then executing on the development, systems integration and testing.',
+      },
+      {
+        id: 4,
+        title: 'Managed Services',
+        subtitle: 'Maintaining, supporting, analysing and enhancing the solution over time.',
+      },
+    ],
+  },
+  {
+    id: 2,
+    left: true,
+    height: 630,
+    head: 'Complete',
+    subhead: 'When you need the full design and build service.',
+    subhead2:
+      'The end-to-end process to take you from initial idea to fully operational experience.',
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2019/09/TS_Strategy.jpg',
+    desc: [],
+  },
+];
