@@ -63,7 +63,7 @@ export default function WhatWeDo() {
   return (
     <Layout>
       <Head>
-        <title>Tigerspike</title>
+        <title>What We Do</title>
       </Head>
       <TitleCard overline={overline} heading={heading} />
       <VideoBanner img="https://www-cdn.tigerspike.com/wp-content/uploads/2020/04/Catalyst.jpg" />

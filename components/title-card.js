@@ -86,11 +86,11 @@ const TitleCardSubHeading = styled.h2`
   color: ${({ theme }) => theme.text.light};
 `;
 
-export default function TitleCard({ overline, heading, subheading }) {
+export default function TitleCard({ overline, heading, subheading, full = false }) {
   return (
     <TitleCardWrapper>
       <TitleCardContainer>
-        <TitleCardSubContainer>
+        <TitleCardSubContainer style={full ? { width: '100%' } : {}}>
           <TitleCardEmpty />
           <TitleCardOverline>{overline}</TitleCardOverline>
           <TitleCardHeading>{heading}</TitleCardHeading>
