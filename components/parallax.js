@@ -33,13 +33,11 @@ const ParallaxImageImg = styled.img`
 export default function ParallaxImage({ img, alt, speed = 0.5, height = 300 }) {
   const iRef = useRef();
   const cRef = useRef();
-  const offestRef = useRef();
   const [parallax, setParallax] = useState(0);
 
   useWindowReSize(
     useCallback(() => {
       try {
-        console.log('here');
         updateSize();
       } catch (error) {
         console.log(error);
@@ -49,8 +47,6 @@ export default function ParallaxImage({ img, alt, speed = 0.5, height = 300 }) {
 
   useEffect(() => {
     try {
-      offestRef.current = cRef.current.getBoundingClientRect().y;
-
       window.addEventListener('scroll', onScroll);
     } catch (error) {
       console.log(error);
@@ -87,22 +83,12 @@ export default function ParallaxImage({ img, alt, speed = 0.5, height = 300 }) {
       const parallaxDist = imgHeight - height;
 
       let parallax = 0;
-      // let scrollTop = 0;
-      // let windowHeight = 0;
-      // let percentScrolled = 0;
-      // let windowScrollHeight = 1;
-
-      // const doc = document.documentElement || document.body;
-      // scrollTop = doc.scrollTop;
-      // windowHeight = doc.clientHeight;
-      // windowScrollHeight = doc.scrollHeight;
-      // percentScrolled = scrollTop / (windowScrollHeight - windowHeight);
 
       const percentageSeen = () => {
         const viewportHeight = window.innerHeight;
         const scrollTop = window.scrollY;
-        const elementOffsetTop = offestRef.current;
         const elementHeight = cRef.current.offsetHeight;
+        const elementOffsetTop = cRef.current.getBoundingClientRect().top + window.scrollY;
 
         const distance = scrollTop + viewportHeight - elementOffsetTop;
         const percentage = Math.round(distance / ((viewportHeight + elementHeight) / 100));

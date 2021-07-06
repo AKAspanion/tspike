@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import styled from 'styled-components';
 
 import { Container, Layout, Parallax, QuoteCard, TitleCard, VideoBanner } from '../components/';
@@ -210,15 +211,17 @@ export default function Home() {
       </ThisIsUsImageContainer>
       <IndexNavWrapper>
         <IndexNav>
-          {navItems.map(({ id, title, desc, link }) => (
+          {navItems.map(({ id, title, href, desc, link }) => (
             <IndexNavCard key={id}>
               <IndexNavTitle>{title}</IndexNavTitle>
               <IndexNavDesc>{desc}</IndexNavDesc>
               <IndexNavHr />
-              <IndexNavLink>
-                {link}
-                <strong> →</strong>
-              </IndexNavLink>
+              <Link href={href}>
+                <IndexNavLink>
+                  {link}
+                  <strong> →</strong>
+                </IndexNavLink>
+              </Link>
             </IndexNavCard>
           ))}
         </IndexNav>
