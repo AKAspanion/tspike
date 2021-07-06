@@ -76,6 +76,18 @@ export default function ParallaxImage({ img, alt, speed = 0.5, height = 300 }) {
       const imgHeight = iRef.current.offsetHeight;
       const parallaxDist = imgHeight - height;
 
+      let parallax = 0;
+      let scrollTop = 0;
+      let windowHeight = 0;
+      let percentScrolled = 0;
+      let windowScrollHeight = 1;
+
+      const doc = document.documentElement || document.body;
+      scrollTop = doc.scrollTop;
+      windowHeight = doc.clientHeight;
+      windowScrollHeight = doc.scrollHeight;
+      percentScrolled = scrollTop / (windowScrollHeight - windowHeight);
+
       const percentageSeen = () => {
         const viewportHeight = window.innerHeight;
         const scrollTop = window.scrollY;
@@ -88,9 +100,9 @@ export default function ParallaxImage({ img, alt, speed = 0.5, height = 300 }) {
         return Math.min(100, Math.max(0, percentage)) / 100;
       };
 
-      const percentScrolled = percentageSeen();
+      const ownPercentScrolled = percentageSeen();
 
-      const parallax = Math.round(parallaxDist * percentScrolled * speed);
+      parallax = Math.round(parallaxDist * percentScrolled * ownPercentScrolled * speed);
 
       setParallax(parallax);
     } catch (error) {
