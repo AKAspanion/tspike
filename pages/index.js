@@ -21,7 +21,7 @@ import {
   ThisIsUsImage,
   ThisIsUsImageContainer,
   ThisisUsText,
-} from './style';
+} from '../styles/home';
 
 const overline = 'HELLO. NICE TO MEET YOU.';
 const heading = 'We design and build experiences people love to use.';

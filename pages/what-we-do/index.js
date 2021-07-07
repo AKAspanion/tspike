@@ -26,7 +26,7 @@ import {
   CatalystSummaryCard,
   QuoteLeft,
   QuoteRight,
-} from './style';
+} from '../../styles/what-we-do';
 
 const overline = 'SOLVERS. TRANSFORMERS. HUMANS.';
 const heading = 'Catalyst drives the outcomes you need.';

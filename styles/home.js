@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Container } from '../components/';
+import { Container } from '../components';
 import device from '../theme/device';
 
 export const QuoteRight = styled.div``;

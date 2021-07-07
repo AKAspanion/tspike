@@ -30,7 +30,7 @@ import {
   PartnerLink,
   PartnerSubHeading,
   QuoteRightItem,
-} from './style';
+} from '../../styles/about-us';
 
 const overline = 'GET TO KNOW US.';
 const heading = 'Small enough to be agile, big enough to tackle any project.';

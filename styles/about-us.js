@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 
-import { Container } from '../../components/';
-import { headingText } from '../../mixins/';
-import device from '../../theme/device';
+import { Container } from '../components';
+import { headingText } from '../mixins';
+import device from '../theme/device';
 
 const pText = css`
   font-size: 18px;

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import { Container } from '../../components/';
-import { headingText, paraText } from '../../mixins/';
-import device from '../../theme/device';
+import { Container } from '../components';
+import { headingText, paraText } from '../mixins';
+import device from '../theme/device';
 
 export const VisitCard = styled(Container)`
   text-align: center;

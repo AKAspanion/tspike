@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
 import { ContactCard, Layout, LocationGrid, TitleCard } from '../../components';
-import { VisitCard, VisitCardDesc, VisitCardHeading } from './style';
+import { VisitCard, VisitCardDesc, VisitCardHeading } from '../../styles/contact';
 
 const overline = 'COME AND SAY HELLO.';
 const heading = 'Get in touch.';
