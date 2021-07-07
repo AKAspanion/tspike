@@ -307,3 +307,69 @@ export const partners = [
     desc: 'Telstra and Concentrix Tigerspike have partnered for six years, delivering significant transformation across both government and enterprise customers. ',
   },
 ];
+
+export const work4 = [
+  {
+    id: 1,
+    name: 'JAPAN Airlines',
+    sector: 'Travel & Transport',
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2020/11/JAL-Hero-Image-uai-1400x600.jpg',
+  },
+  {
+    id: 2,
+    name: 'DCJ - MyHousing',
+    sector: 'Government',
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2020/09/MyHousing_header-uai-1400x600.jpg',
+  },
+  {
+    id: 3,
+    name: 'Collinson',
+    sector: 'Travel & Transport',
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2019/04/PP_mood-3-uai-1400x600.jpg',
+  },
+  {
+    id: 4,
+    name: 'Melbourne & Olympic Parks',
+    sector: 'Consumer',
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2019/08/MOPT_Hero-uai-1400x600.jpg',
+  },
+];
+
+export const work6 = [
+  {
+    id: 1,
+    name: 'NIHR',
+    sector: 'Health',
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2016/10/NIHR_Mood01-uai-1032x688.jpg',
+  },
+  {
+    id: 2,
+    name: 'National Relay Service',
+    sector: 'Government',
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2020/10/NRS_main-uai-1032x688.jpg',
+  },
+  {
+    id: 3,
+    name: 'DirecTV',
+    sector: 'Media',
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2016/10/DirectTv-CloseUp-uai-1032x688.jpg',
+  },
+  {
+    id: 4,
+    name: 'Velocity Frequent Flyer',
+    sector: 'Travel & Transport',
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2019/04/jeshoots-com-722888-unsplashv2-uai-1032x688.jpg',
+  },
+  {
+    id: 5,
+    name: 'GrainCorp',
+    sector: 'Industrial',
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2019/12/Agriculture-People-4-1-1-uai-900x600.jpg',
+  },
+  {
+    id: 5,
+    name: 'Energy Queensland',
+    sector: 'Energy',
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2020/07/EQ-Capture-Safety-hazards-uai-1032x688.jpg',
+  },
+];
