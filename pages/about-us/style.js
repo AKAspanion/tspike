@@ -110,3 +110,78 @@ export const NutshellDesc = styled.p`
   ${pText};
   margin-top: var(--pad);
 `;
+
+export const PartnerContainer = styled(Container)`
+  --pad: ${({ theme }) => theme.padding};
+  padding: calc(var(--pad) * 2) var(--pad);
+`;
+
+export const PartnerHeading = styled.div`
+  font-size: 75px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-top: calc(var(--pad) * 1.5);
+  @media ${device.laptop} {
+    font-size: 50px;
+  }
+  @media ${device.mobile} {
+    font-size: 35px;
+  }
+`;
+
+export const PartnerSubHeading = styled.div`
+  ${pText};
+  margin-top: var(--pad);
+  color: ${({ theme }) => theme.text.light};
+`;
+
+export const PartnerCardContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: var(--pad) 0px;
+  @media ${device.laptop} {
+    flex-direction: column;
+  }
+`;
+
+export const PartnerCard = styled.div`
+  width: calc(50% - calc(var(--pad) / 1.5));
+
+  :nth-child(1),
+  :nth-child(2) {
+    margin-bottom: var(--pad);
+  }
+  @media ${device.laptop} {
+    width: 100%;
+    margin-bottom: var(--pad);
+
+    :last-child {
+      margin-bottom: 0px;
+    }
+  }
+`;
+
+export const PartnerImg = styled.img`
+  height: 162px;
+
+  @media ${device.laptop} {
+    height: 120px;
+  }
+`;
+
+export const PartnerDesc = styled.p`
+  ${pText};
+  color: ${({ theme }) => theme.text.light};
+`;
+
+export const PartnerLink = styled.a`
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.2;
+  cursor: pointer;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.colors.primary};
+`;

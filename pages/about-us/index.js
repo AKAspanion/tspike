@@ -8,7 +8,7 @@ import {
   QuoteCard,
   TitleCard,
 } from '../../components';
-import { nutshell } from '../../constants';
+import { nutshell, partners } from '../../constants';
 import {
   AboutFamilyContainer,
   AboutFamilyContent,
@@ -21,6 +21,14 @@ import {
   NutshellHeading,
   NutshellTitle,
   NutshellWrapper,
+  PartnerCard,
+  PartnerCardContainer,
+  PartnerContainer,
+  PartnerDesc,
+  PartnerHeading,
+  PartnerImg,
+  PartnerLink,
+  PartnerSubHeading,
   QuoteRightItem,
 } from './style';
 
@@ -92,6 +100,21 @@ export default function AboutUs() {
           </NutshellCardContainer>
         </NutshellContainer>
       </NutshellWrapper>
+      <PartnerContainer>
+        <PartnerHeading>Partnering with the best.</PartnerHeading>
+        <PartnerSubHeading>
+          Our partners invent amazing new technology. We apply it. Users love it.
+        </PartnerSubHeading>
+        <PartnerCardContainer>
+          {partners.map(({ id, name, desc, img }) => (
+            <PartnerCard key={id}>
+              <PartnerImg alt={name} src={img} />
+              <PartnerDesc>{desc}</PartnerDesc>
+              <PartnerLink>READ MORE →</PartnerLink>
+            </PartnerCard>
+          ))}
+        </PartnerCardContainer>
+      </PartnerContainer>
       <LocationGrid />
       <ContactCard />
     </Layout>

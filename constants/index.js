@@ -280,3 +280,30 @@ export const locations = [
     link: '/contact/brisbane',
   },
 ];
+
+export const partners = [
+  {
+    id: 1,
+    name: 'Apple',
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2021/03/Apple_logo_left.png',
+    desc: 'Concentrix Tigerspike has been an Apple Mobility Partner since 2015. Together, we design and build native applications that change the way people work.',
+  },
+  {
+    id: 2,
+    name: 'AWS',
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2021/03/AWS_logo_left.png',
+    desc: 'Concentrix Tigerspike is an APN Advanced Consulting Partner with digital consulting, design and cutting edge DevOps capabilities.',
+  },
+  {
+    id: 3,
+    name: 'Microsoft',
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2021/03/Microsoft_logo_left.png',
+    desc: 'Concentrix Tigerspike has expertise in developing mobile and web client apps integrating with Microsoft’s Azure platform for both enterprise and consumer users.',
+  },
+  {
+    id: 4,
+    name: 'Telstra',
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2021/03/Telstra_logo_left.png',
+    desc: 'Telstra and Concentrix Tigerspike have partnered for six years, delivering significant transformation across both government and enterprise customers. ',
+  },
+];
