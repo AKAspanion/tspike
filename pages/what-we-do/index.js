@@ -2,11 +2,11 @@ import Head from 'next/head';
 
 import {
   ContactCard,
+  ImageBanner,
   Layout,
   Parallax,
   QuoteCard,
   TitleCard,
-  VideoBanner,
 } from '../../components/';
 import { catalystHeroItems, catalystItems } from '../../constants';
 import useWindowReSize from '../../hooks/useWindowReSize';
@@ -66,7 +66,7 @@ export default function WhatWeDo() {
         <title>What We Do</title>
       </Head>
       <TitleCard overline={overline} heading={heading} />
-      <VideoBanner img="https://www-cdn.tigerspike.com/wp-content/uploads/2020/04/Catalyst.jpg" />
+      <ImageBanner img="https://www-cdn.tigerspike.com/wp-content/uploads/2020/04/Catalyst.jpg" />
       <QuoteCard
         quoteLeft={
           <QuoteLeft>

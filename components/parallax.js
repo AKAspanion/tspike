@@ -33,6 +33,7 @@ const ParallaxImageImg = styled.img`
 export default function ParallaxImage({ img, alt, speed = 0.5, height = 300 }) {
   const iRef = useRef();
   const cRef = useRef();
+  const firstValue = useRef();
   const [parallax, setParallax] = useState(0);
 
   useWindowReSize(
@@ -98,9 +99,15 @@ export default function ParallaxImage({ img, alt, speed = 0.5, height = 300 }) {
 
       const ownPercentScrolled = percentageSeen();
 
-      parallax = Math.round(parallaxDist * ownPercentScrolled * speed);
+      parallax = Math.round(
+        parallaxDist * (ownPercentScrolled - (firstValue.current || 0)) * speed
+      );
 
-      setParallax(parallax);
+      if (!firstValue.current) {
+        firstValue.current = ownPercentScrolled;
+      } else {
+        setParallax(parallax);
+      }
     } catch (error) {
       console.log(error);
     }

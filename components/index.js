@@ -1,6 +1,7 @@
 export { default as Container } from './styled/container';
 export { default as Flex } from './styled/flex';
 
+export { default as ImageBanner } from './image-banner';
 export { default as VideoBanner } from './video-banner';
 export { default as ContactCard } from './contact-card';
 export { default as QuoteCard } from './quote-card';

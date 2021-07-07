@@ -57,6 +57,7 @@ const TabletVisible = styled.div`
 const NavMobileContainer = styled(TabletVisible)`
   background: ${({ theme }) => theme.colors.white};
   position: absolute;
+  z-index: 10;
   width: 100%;
   left: 0px;
   overflow: hidden;
