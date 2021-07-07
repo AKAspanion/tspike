@@ -1,11 +1,19 @@
 import Head from 'next/head';
 
 import { ContactCard, ImageBanner, Layout, QuoteCard, TitleCard } from '../../components';
+import { nutshell } from '../../constants';
 import {
   AboutFamilyContainer,
   AboutFamilyContent,
   AboutFamilyEmpty,
   AboutUsImage,
+  NutshellCard,
+  NutshellCardContainer,
+  NutshellContainer,
+  NutshellDesc,
+  NutshellHeading,
+  NutshellTitle,
+  NutshellWrapper,
   QuoteRightItem,
 } from './style';
 
@@ -64,6 +72,19 @@ export default function AboutUs() {
           </p>
         </AboutFamilyContent>
       </AboutFamilyContainer>
+      <NutshellWrapper>
+        <NutshellContainer>
+          <NutshellHeading>IN A NUTSHELL</NutshellHeading>
+          <NutshellCardContainer>
+            {nutshell.map(({ id, title, desc }) => (
+              <NutshellCard key={id}>
+                <NutshellTitle>{title}</NutshellTitle>
+                <NutshellDesc>{desc}</NutshellDesc>
+              </NutshellCard>
+            ))}
+          </NutshellCardContainer>
+        </NutshellContainer>
+      </NutshellWrapper>
       <ContactCard />
     </Layout>
   );

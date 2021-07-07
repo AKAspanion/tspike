@@ -187,3 +187,21 @@ export const catalystHeroItems = {
     'Capability Growth.',
   ],
 };
+
+export const nutshell = [
+  {
+    id: 1,
+    title: 'What we do',
+    desc: 'Is service design, strategic consulting, experience design, multi-platform engineering and managed services.',
+  },
+  {
+    id: 2,
+    title: 'What our clients get',
+    desc: 'Is higher market share, lower costs, more innovation, better decisions and even completely new capabilities.',
+  },
+  {
+    id: 3,
+    title: 'Why we do it',
+    desc: 'Is the quest to improve everyone’s life with experiences they love to use.',
+  },
+];
