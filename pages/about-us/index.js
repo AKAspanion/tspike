@@ -1,6 +1,13 @@
 import Head from 'next/head';
 
-import { ContactCard, ImageBanner, Layout, QuoteCard, TitleCard } from '../../components';
+import {
+  ContactCard,
+  ImageBanner,
+  Layout,
+  LocationGrid,
+  QuoteCard,
+  TitleCard,
+} from '../../components';
 import { nutshell } from '../../constants';
 import {
   AboutFamilyContainer,
@@ -85,6 +92,7 @@ export default function AboutUs() {
           </NutshellCardContainer>
         </NutshellContainer>
       </NutshellWrapper>
+      <LocationGrid />
       <ContactCard />
     </Layout>
   );

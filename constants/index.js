@@ -205,3 +205,78 @@ export const nutshell = [
     desc: 'Is the quest to improve everyone’s life with experiences they love to use.',
   },
 ];
+
+export const locations = [
+  {
+    id: 1,
+    name: 'San Francisco',
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2017/05/San-Francisco-1-uai-2880x1741.jpg',
+    link: '/contact/san-francisco',
+  },
+  {
+    id: 2,
+    name: 'San José',
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2021/03/SanJose_HeroImage-copy.jpg',
+    link: '/contact/san-jose',
+  },
+  {
+    id: 3,
+    name: 'New York',
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2016/09/Flatiron.jpg',
+    link: '/contact/new-york',
+  },
+  {
+    id: 4,
+    name: 'London',
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2017/05/London.jpg',
+    link: '/contact/london',
+  },
+  {
+    id: 5,
+    name: 'Wrocław',
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2017/05/Wrocław.jpg',
+    link: '/contact/worclaw',
+  },
+  {
+    id: 6,
+    name: 'Dubai',
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2017/05/Dubai.jpg',
+    link: '/contact/dubai',
+  },
+  {
+    id: 7,
+    name: 'Bengaluru',
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2021/03/pexels-vivek-chugh-739987-1.jpeg',
+    link: '/contact/bengaluru',
+  },
+  {
+    id: 8,
+    name: 'Singapore',
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2017/05/Singapore.jpg',
+    link: '/contact/singapore',
+  },
+  {
+    id: 9,
+    name: 'Tokyo',
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2017/05/Tokyo.jpg',
+    link: '/contact/tokyo',
+  },
+  {
+    id: 10,
+    name: 'Melbourne',
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2017/05/Melbourne.jpg',
+    link: '/contact/melbourne',
+  },
+  {
+    id: 11,
+    name: 'Sydney',
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2016/09/Sydney-2018.jpg',
+    link: '/contact/sydney',
+  },
+  {
+    id: 12,
+    name: 'Brisbane',
+    img: 'https://www-cdn.tigerspike.com/wp-content/uploads/2019/02/Brisbane-City.png',
+    link: '/contact/brisbane',
+  },
+];
