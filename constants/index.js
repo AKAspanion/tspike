@@ -36,7 +36,7 @@ export const navItems = [
     desc: 'See the outcomes we have achieved for business, government and non-profits.',
     link: 'OUR WORK',
     name: 'Work',
-    href: '/work',
+    href: '/works',
   },
   {
     id: 4,
