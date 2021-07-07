@@ -6,7 +6,8 @@ import { Container } from '.';
 
 const ContactCardWrapper = styled.div`
   background-size: cover;
-  background-position: center;
+  background-position: top;
+  background-repeat: no-repeat;
   --pad: ${({ theme }) => theme.padding};
   padding: calc(var(--pad) * 2) 0px;
   background: ${({ theme }) => theme.bg.secondary};

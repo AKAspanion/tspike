@@ -29,3 +29,9 @@ export const subheadingText = css`
   line-height: 1.5;
   letter-spacing: -0.03em;
 `;
+
+export const paraText = css`
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.75;
+`;

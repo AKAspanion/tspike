@@ -96,7 +96,7 @@ export default function TitleCard({ overline, heading, subheading, full = false 
           <TitleCardHeading>{heading}</TitleCardHeading>
           {subheading && (
             <>
-              <TitleCardSubHeading>{subheading}</TitleCardSubHeading>
+              <TitleCardSubHeading dangerouslySetInnerHTML={{ __html: subheading }} />
               <TitleCardEmptyBottom />
             </>
           )}
