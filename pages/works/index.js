@@ -17,7 +17,7 @@ const heading = 'We have helped over 450 organisations enhance their experiences
 const subheading =
   'Take a look through a few of our client success stories and see how people are loving Concentrix Tigerspike experiences across business, enterprise, government and non-profits. ';
 
-export default function Contact() {
+export default function Work() {
   return (
     <Layout>
       <Head>
