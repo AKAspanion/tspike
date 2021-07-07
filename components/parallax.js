@@ -98,13 +98,15 @@ export default function ParallaxImage({ img, alt, speed = 0.5, height = 300 }) {
       };
 
       const ownPercentScrolled = percentageSeen();
+      const calculatedPercent = ownPercentScrolled - (firstValue.current || 0);
 
-      parallax = Math.round(
-        parallaxDist * (ownPercentScrolled - (firstValue.current || 0)) * speed
-      );
+      parallax = Math.round(parallaxDist * calculatedPercent * speed);
 
-      if (!firstValue.current) {
+      if (firstValue.current === undefined) {
         firstValue.current = ownPercentScrolled;
+        if (ownPercentScrolled > 0.9) {
+          firstValue.current = 0;
+        }
       } else {
         setParallax(parallax);
       }
