@@ -9,21 +9,7 @@ import styled from 'styled-components';
 import { navItems } from '../constants/';
 import device from '../theme/device';
 import { Flex } from '.';
-
-const HeaderMain = styled.header`
-  --pad: ${({ theme }) => theme.padding};
-  width: 100%;
-  z-index: 100;
-  padding: 0px var(--pad);
-  background: ${({ theme }) => theme.colors.white};
-  @media ${device.laptop} {
-    box-shadow: none !important;
-    padding-right: 4px;
-  }
-  @media ${device.mobile} {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  }
-`;
+import theme from '../theme';
 
 const HeaderContainer = styled(Flex)`
   height: 73px;
@@ -115,9 +101,23 @@ const Hamburger = styled.div`
   transform: scale(0.5);
 `;
 
-export default function Header() {
+export default function Header(props) {
   const router = useRouter();
-
+  const headerBg = props.transparent ? theme.colors.headerTransparent : theme.colors.white;
+  const HeaderMain = styled.header`
+    --pad: ${({ theme }) => theme.padding};
+    width: 100%;
+    z-index: 100;
+    padding: 0px var(--pad);
+    background: ${headerBg};
+    @media ${device.laptop} {
+      box-shadow: none !important;
+      padding-right: 4px;
+    }
+    @media ${device.mobile} {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+  `;
   const [onTop, setOnTop] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
 

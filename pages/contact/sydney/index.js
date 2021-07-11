@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import { Layout, LocationGrid, TitleCard, VideoBanner } from '../../components';
+import { Layout, LocationGrid, TitleCard, VideoBanner } from '../../../components';
 
 const overline = 'JOIN US.';
 const heading = 'Do you want to be part of the team?';

@@ -10,6 +10,7 @@ export default {
     black: '#000000',
     white: '#ffffff',
     primary: '#009FA1',
+    headerTransparent: '#14161800',
   },
   bg: {
     dark: '#1A1E20',
