@@ -886,3 +886,97 @@ export const insights = [
     name: 'What you may be looking for is big answers, not big data',
   },
 ];
+
+export const careersLondon = [
+  {
+    id: 1,
+    jobtitle: 'Engineering',
+    openingCount: 1,
+    jobProfile: 'Desktop Support Technician',
+    link: 'https://tigerspike.com/job-template/?job=n9JNALH4Ot',
+  },
+  {
+    id: 2,
+    jobtitle: 'Project management',
+    openingCount: 2,
+    jobProfile: 'Business Analyst',
+    link: 'https://tigerspike.com/job-template/?job=H6XvB70vHZ',
+  },
+  {
+    id: 3,
+    jobtitle: 'Want to become a tigerspiker?',
+    openingCount: 3,
+    jobProfile: 'Join Concentrix Tigerspike UK!',
+    link: 'https://tigerspike.com/job-template/?job=IZttdjQJsU',
+  },
+];
+
+export const careersSydney = [
+  {
+    id: 1,
+    jobtitle: 'Commercial',
+    openingCount: 1,
+    jobProfile: 'Account/Client Services Manager',
+    link: 'https://tigerspike.com/job-template/?job=BPFMysUUoy',
+  },
+  {
+    id: 2,
+    jobtitle: 'Design',
+    openingCount: 3,
+    jobProfile: ['Desktop Support Technician', 'Senior UI Designer', 'Senior UI Designer'],
+    link: [
+      'https://tigerspike.com/job-template/?job=tGfrGGCzsa',
+      'https://tigerspike.com/job-template/?job=ChFsTRcFul',
+      'https://tigerspike.com/job-template/?job=Bf6EDUZnQn',
+    ],
+  },
+  {
+    id: 3,
+    jobtitle: 'Engineering',
+    openingCount: 6,
+    jobProfile: [
+      'Cloud Engineer',
+      'Software Engineer In Test',
+      'Mid/Senior Software Engineer (JAVA)',
+      'Software Engineer (Android)',
+      'Software Engineer (iOS)',
+      'Software Engineer (React Native)',
+    ],
+    link: [
+      'https://tigerspike.com/job-template/?job=wDBdpPtoSD',
+      'https://tigerspike.com/job-template/?job=ucDaGKwbi7',
+      'https://tigerspike.com/job-template/?job=XFYysSmKel',
+      'https://tigerspike.com/job-template/?job=vcB3IfQYrr',
+      'https://tigerspike.com/job-template/?job=3JjUjjdqNX',
+      'https://tigerspike.com/job-template/?job=U8a2MSPXwE',
+    ],
+  },
+  {
+    id: 4,
+    jobtitle: 'Finance',
+    openingCount: 1,
+    jobProfile: ['Finance Manager'],
+    link: ['https://tigerspike.com/job-template/?job=chBi6qZSzA'],
+  },
+  {
+    id: 5,
+    jobtitle: 'Human resources',
+    openingCount: 1,
+    jobProfile: ['Senior Talent Acquisition Manager'],
+    link: ['https://tigerspike.com/job-template/?job=N990mTwTsR'],
+  },
+  {
+    id: 6,
+    jobtitle: 'Project management',
+    openingCount: 1,
+    jobProfile: ['Senior Business Analyst'],
+    link: ['https://tigerspike.com/job-template/?job=34Lmj4QebR'],
+  },
+  {
+    id: 7,
+    jobtitle: 'Want to become a tigerspiker?',
+    openingCount: 1,
+    jobProfile: ['Join Concentrix Tigerspike Sydney!'],
+    link: ['https://tigerspike.com/job-template/?job=2Gyfja6Uax'],
+  },
+];
