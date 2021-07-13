@@ -13,7 +13,7 @@ const LayoutWrapper = styled.div`
   font-family: ${({ theme }) => theme.fontFamily.primary};
 `;
 
-export default function Layout({ children, transparent = false }) {
+export default function Layout({ children, transparent = false, pagefull = false }) {
   return (
     <LayoutWrapper>
       <Head>
@@ -21,7 +21,7 @@ export default function Layout({ children, transparent = false }) {
         <meta name="description" content="Website" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <Header transparent={transparent} />
+      <Header transparent={transparent} pagefull={pagefull} />
       <main>{children}</main>
       <Footer />
     </LayoutWrapper>

@@ -11,6 +11,7 @@ export default {
     white: '#ffffff',
     primary: '#009FA1',
     headerTransparent: '#14161800',
+    transparentBlack: '#777777',
   },
   bg: {
     dark: '#1A1E20',

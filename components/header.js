@@ -107,6 +107,7 @@ export default function Header(props) {
   const HeaderMain = styled.header`
     --pad: ${({ theme }) => theme.padding};
     width: 100%;
+    ${props?.pagefull ? 'position:absolute; color:white' : ''};
     z-index: 100;
     padding: 0px var(--pad);
     background: ${headerBg};

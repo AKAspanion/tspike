@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-
+import { HeaderOverlay } from './index';
 import useWindowReSize from '../hooks/useWindowReSize';
 
 const ParallaxImageContainer = styled.div`
@@ -20,6 +20,16 @@ const ParallaxContainer = styled.div`
   z-index: 1;
 `;
 
+const BackgroundOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  background: ${({ theme }) => theme.colors.black};
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+  z-index: 5;
+`;
+
 const ParallaxImageImg = styled.img`
   bottom: 0;
   left: 50%;
@@ -30,11 +40,22 @@ const ParallaxImageImg = styled.img`
   will-change: transform;
   transition: opacity 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
 `;
-export default function ParallaxImage({ img, alt, speed = 0.5, height = 300 }) {
+
+export default function ParallaxImage({
+  img,
+  alt,
+  speed = 0.5,
+  height = 300,
+  bottom = 0,
+  top = -1,
+  overlay = false,
+  overlayData = {},
+}) {
   const iRef = useRef();
   const cRef = useRef();
   const firstValue = useRef();
   const [parallax, setParallax] = useState(0);
+  const topStyle = top == -1 ? {} : { top: 0 };
 
   useWindowReSize(
     useCallback(() => {
@@ -76,6 +97,14 @@ export default function ParallaxImage({ img, alt, speed = 0.5, height = 300 }) {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const getBackGroundOverlay = (overlayData) => {
+    return (
+      <BackgroundOverlay>
+        <HeaderOverlay overlayData={overlayData}></HeaderOverlay>
+      </BackgroundOverlay>
+    );
   };
 
   const onScroll = () => {
@@ -122,9 +151,10 @@ export default function ParallaxImage({ img, alt, speed = 0.5, height = 300 }) {
           alt={alt}
           src={img}
           ref={iRef}
-          style={{ transform: `translate3D(-50%, ${parallax}px, 0)` }}
+          style={{ transform: `translate3D(-50%, ${parallax}px, 0)`, bottom: bottom, ...topStyle }}
         />
       </ParallaxImageContainer>
+      {overlay && getBackGroundOverlay(overlayData)}
     </ParallaxContainer>
   );
 }

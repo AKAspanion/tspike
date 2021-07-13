@@ -10,3 +10,5 @@ export { default as QuoteCard } from './quote-card';
 export { default as TitleCard } from './title-card';
 export { default as Parallax } from './parallax';
 export { default as Layout } from './layout';
+export { default as CareerCard } from './career-card';
+export { default as HeaderOverlay } from './header-overlay';

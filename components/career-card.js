@@ -1,61 +1,73 @@
 import styled from 'styled-components';
 
 import { Container } from '../components/';
-import { flex } from '../mixins';
+import { flex, headingText } from '../mixins';
 import device from '../theme/device';
 
-const QuoteWrapper = styled.div`
+const PositionWrapper = styled.div`
   --pad: ${({ theme }) => theme.padding};
-  background: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.white};
 `;
+const JobContainer = styled(Container)`
+    padding: var(--pad);
+    text-align: center;
+}`;
 
-const QuoteContainer = styled(Container)`
-  ${flex}
-  justify-content: space-between;
-  padding: calc(var(--pad) * 2) var(--pad);
-  @media ${device.laptop} {
-    flex-wrap: wrap;
-  }
+const LinkWrapper = styled.div`
+  display: grid;
+  padding-top: 18px;
 `;
-
-const QuoteItem = styled.div`
-  width: calc(50% - 36px);
+const OpeningCount = styled.div`
+  color: ${({ theme }) => theme.colors.transparentBlack};
+  line-height: 1.2;
+  font-size: 18px;
+  font-weight: 500;
   @media ${device.laptop} {
     width: 100%;
   }
 `;
-const QuoteItem1 = styled(QuoteItem)`
-  font-size: 40px;
-  font-weight: 700;
-  line-height: 1.25;
-  font-family: ${({ theme }) => theme.fontFamily.secondary};
-  @media ${device.laptop} {
-    font-size: 28px;
-    letter-spacing: -0.03em;
-  }
-  @media ${device.mobile} {
-    font-size: 35px;
-    letter-spacing: -0.03em;
-  }
+export const JobSector = styled.h2`
+  ${headingText};
+  font-size: 29px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: ${({ theme }) => theme.colors.black};
 `;
-const QuoteItem2 = styled(QuoteItem)`
+export const JobTitle = styled.a`
+  ${headingText};
   font-size: 18px;
-  font-weight: 300;
-  line-height: 1.75;
-  font-family: ${({ theme }) => theme.fontFamily.primary};
-  @media ${device.laptop} {
-    padding-left: 0px;
-  }
+  font-weight: 400;
+  line-height: 1.4;
+  cursor: pointer;
+  color: ${({ theme }) => theme.colors.primary};
 `;
 
-export default function QuoteCard({ quoteLeft, quoteRight }) {
+export default function CareerCard(props) {
+  const { careerData } = props;
+  const careerBox = ({ id, jobtitle, openingCount, jobProfile }) => {
+    return (
+      <JobContainer key={id}>
+        <JobSector>{jobtitle}</JobSector>
+        <OpeningCount>{`${openingCount} ${
+          openingCount > 1 ? 'openings' : 'opening'
+        }`}</OpeningCount>
+        {jobProfile?.map(({ text, link }) => {
+          return (
+            <LinkWrapper>
+              <JobTitle href={link}>{text}</JobTitle>
+            </LinkWrapper>
+          );
+        })}
+      </JobContainer>
+    );
+  };
   return (
-    <QuoteWrapper>
-      <QuoteContainer>
-        <QuoteItem1>{quoteLeft}</QuoteItem1>
-        <QuoteItem2>{quoteRight}</QuoteItem2>
-      </QuoteContainer>
-    </QuoteWrapper>
+    <PositionWrapper>
+      {careerData &&
+        careerData.map((positionData) => {
+          return careerBox(positionData);
+        })}
+    </PositionWrapper>
   );
 }
