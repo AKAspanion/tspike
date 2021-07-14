@@ -1,26 +1,37 @@
 import Head from 'next/head';
 
-import { CareerCard, HeadingCard, Layout, LocationGrid, TitleCard } from '../../../components';
-import { careersSydney } from '../../../constants';
+import { CareerCard, Parallax, Layout, LocationGrid, RowsContainer } from '../../../components';
+import { careersSydney, rowContainerSydney } from '../../../constants';
 
-const overline = 'COME AND SAY HELLO.';
-const heading = 'Get in touch.';
-const subheading =
-  'Want to know more?  Let us help. <br/> Simply fill in the form and someone will get back to you as soon as possible.';
+const overlayData = {
+  maintext: 'Sydney',
+  addressLine1: 'Level 1, 115 Cooper St',
+  addressLine2: 'Surry Hills NSW 2010',
+  email: 'sydney@tigerspike.com',
+  phone: '+61 2 9361 5132',
+};
 
 export default function Careers() {
   return (
-    <Layout transparent={true}>
+    <Layout transparent={true} pagefull={true}>
       <Head>
-        <title>Contact</title>
+        <title>Contact Sydney</title>
       </Head>
-      <TitleCard overline={overline} heading={heading} subheading={subheading} />
+      <Parallax
+        speed={0.5}
+        height={400}
+        img="https://www-cdn.tigerspike.com/wp-content/uploads/2016/09/Sydney-2018.jpg"
+        overlay={true}
+        bottom={-46}
+        overlayData={overlayData}
+      />
+      {rowContainerSydney && <RowsContainer rowsData={rowContainerSydney} />}
       {careersSydney && <CareerCard careerData={careersSydney} />}
-      <HeadingCard
-        heading="Visit one of our offices"
-        subheading="Concentrix Tigerspike has global reach enhanced by local knowledge. We have 12 offices
-          across many time zones, there is always someone working somewhere. We’d welcome a visit
-          (when that’s allowed), come meet our dogs, try our coffee or maybe even start a project."
+      <Parallax
+        speed={0.5}
+        height={500}
+        img="https://www-cdn.tigerspike.com/wp-content/uploads/2020/02/Sydney-Landscape-5.jpg"
+        bottom={-46}
       />
       <LocationGrid />
     </Layout>

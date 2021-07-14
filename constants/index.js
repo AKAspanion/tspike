@@ -1030,3 +1030,81 @@ export const careersSydney = [
     ],
   },
 ];
+
+export const carouselLondon = [];
+
+export const rowContainerLondon = [
+  [
+    {
+      type: 'image',
+      url: 'https://www-cdn.tigerspike.com/wp-content/uploads/2019/12/TS_London-page-landmarks-2.jpg',
+    },
+    {
+      type: 'text',
+      topHeaderText:
+        '“Friendly, inclusive, forward-thinking, innovative, good people, friendly people…“',
+      bottomHeaderText: 'Simon Hart,',
+      bottomHeaderTextAuthor: 'Lead Business Analyst',
+    },
+    {
+      type: 'image',
+      url: 'https://www-cdn.tigerspike.com/wp-content/uploads/2019/12/TS_London-page-landmarks.jpg',
+    },
+  ],
+  [
+    {
+      type: 'image',
+      url: 'https://www-cdn.tigerspike.com/wp-content/uploads/2019/12/TS_London-Summer-Party-1.jpg',
+    },
+    {
+      type: 'map',
+      topHeaderText: 'Pay us a visit',
+      bottomHeaderText: '2-16 Goodge St',
+      buttonText: 'Get Directions',
+      url: 'https://www-cdn.tigerspike.com/wp-content/uploads/2016/09/Map-London.jpg',
+      buttonLink: 'https://goo.gl/maps/o5eCo1Hsa7L2',
+    },
+    {
+      type: 'image',
+      url: 'https://www-cdn.tigerspike.com/wp-content/uploads/2019/12/Daisy.jpg',
+    },
+  ],
+];
+
+export const rowContainerSydney = [
+  [
+    {
+      type: 'image',
+      url: 'https://www-cdn.tigerspike.com/wp-content/uploads/2020/02/Sydney-Hachathon.jpg',
+    },
+    {
+      type: 'text',
+      topHeaderText:
+        '“What makes me a proud Tiger is the level of care and understanding Tigerspike gives to every staff member. To feel like your company actually cares about you is very rare to find and this is something Tigerspike does so amazingly!”',
+      bottomHeaderText: 'Miranda Rutherford,',
+      bottomHeaderTextAuthor: 'Talent Acquisition Manager',
+    },
+    {
+      type: 'image',
+      url: 'https://www-cdn.tigerspike.com/wp-content/uploads/2020/02/Sydney-Landscape-1.jpg',
+    },
+  ],
+  [
+    {
+      type: 'image',
+      url: 'https://www-cdn.tigerspike.com/wp-content/uploads/2020/02/Syney-Landscape-8-1.jpg',
+    },
+    {
+      type: 'map',
+      topHeaderText: 'Pay us a visit',
+      bottomHeaderText: '115 Cooper St',
+      buttonText: 'Get Directions',
+      url: 'https://www-cdn.tigerspike.com/wp-content/uploads/2016/09/Map-London.jpg',
+      buttonLink: 'https://goo.gl/maps/dJ2T8iBsbePt9JtP9',
+    },
+    {
+      type: 'image',
+      url: 'https://www-cdn.tigerspike.com/wp-content/uploads/2020/02/Sydney-Full-Grpoup.jpg',
+    },
+  ],
+];

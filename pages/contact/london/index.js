@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
-import { CareerCard, Parallax, Layout, LocationGrid, TitleCard } from '../../../components';
-import { careersLondon } from '../../../constants';
+import { CareerCard, Parallax, Layout, LocationGrid, RowsContainer } from '../../../components';
+import { careersLondon, rowContainerLondon } from '../../../constants';
 const overlayData = {
   maintext: 'London',
   addressLine1: 'Level 4, Kings Court, 2-16 Goodge St',
@@ -13,7 +13,7 @@ export default function Careers() {
   return (
     <Layout transparent={true} pagefull={true}>
       <Head>
-        <title>Contact</title>
+        <title>Contact London</title>
       </Head>
       <Parallax
         speed={0.5}
@@ -23,6 +23,7 @@ export default function Careers() {
         top={0}
         overlayData={overlayData}
       />
+      {rowContainerLondon && <RowsContainer rowsData={rowContainerLondon} />}
       {careersLondon && <CareerCard careerData={careersLondon} />}
       <Parallax
         speed={0.5}
