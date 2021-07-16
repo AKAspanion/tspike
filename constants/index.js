@@ -1108,3 +1108,101 @@ export const rowContainerSydney = [
     },
   ],
 ];
+
+export const dataContainer = [
+  [
+    {
+      type: 'quote',
+      text: '“Don’t put all your eggs in one basket” - while legacy architecture designs have helped us serve award-winning apps for our clients back in the day, change was slow and deployments and maintenance tasks were always a headache requiring too much planning, effort and overhead. So, how did we improve on this?',
+    },
+    {
+      type: 'para',
+      text: [
+        'At <a href="https://tigerspike.com/" rel="noopener nofollow">Concentrix Tigerspike</a>, our inquisitive nature brings insight and innovation. And migrating our hosting services over from the local datacentre to <a href="https://aws.amazon.com/" rel="noopener nofollow">AWS</a> back in 2013-2014 made it even easier and better to innovate and keep up with the latest best practices. With <a href="https://aws.amazon.com/" rel="noopener nofollow">AWS</a>, you’re always presented with new services, solutions and opportunities for improvement.',
+        'Shared dependencies between applications bring shared risks; i.e. each application introduces its own risks to a bigger pool of risks shared by all applications.',
+        'So, without further ado, here are some of the approaches we’ve taken to decouple and de-risk the applications we build and manage wherever and whenever possible:',
+      ],
+    },
+  ],
+  [
+    {
+      type: 'header',
+      text: 'Decouple your multiple applications on a shared infrastructure.',
+    },
+    {
+      type: 'para',
+      text: [
+        'This is pretty much decoupling 101. If you have multiple applications hosted on the same infrastructure, move them away from each other. The less they share, the fewer risks you would have. So, here are some infrastructure decoupling practices:',
+      ],
+    },
+    {
+      type: 'list',
+      text: [
+        'If your applications are managed through one repository, split them. Creating new repos should be easy and straightforward with any provider, especially if you are hosting your own source code service, but look into <a href="https://aws.amazon.com/codecommit/features/" rel="noopener nofollow">CodeCommit</a> if you’re looking for a reliable and cheap managed repo service that you can integrate so easily with other AWS services and developer tools.',
+        'If your applications share CI/CD pipelines, separate them. <a  href="https://aws.amazon.com/codepipeline/features/" rel="noopener nofollow">CodePipeline</a> makes it very easy to create pipelines and standardise them via <a  href="https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-cloudformation.html" rel="noopener nofollow">CloudFormation templates</a>. Also, the sky is your limit with <a  href="https://aws.amazon.com/codebuild/features/" rel="noopener nofollow">CodeBuild</a> and <a href="https://aws.amazon.com/codedeploy/features/" rel="noopener nofollow">CodeDeploy</a. Check out my previous post “<a href="https://malsouli.medium.com/10-smart-ways-to-use-aws-codebuild-22a8ee0d9302" rel="noopener">10 smart way to use CodeBuild“</a>.',
+        'If your applications are hosted on the same instance or same set of instances, separate them and deploy on different instances or different sets of instances. Use <a  href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchTemplates.html" rel="noopener nofollow">Launch Templates</a> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html" rel="noopener nofollow">Auto Scaling Groups</a>, <a href="https://aws.amazon.com/elasticbeanstalk/" rel="noopener nofollow">Elastic Beanstalk</a> or <a href="https://aws.amazon.com/opsworks/" rel="noopener nofollow">OpsWorks</a> to manage your instances and their configurations. Also, make use of <a  href="https://aws.amazon.com/elasticloadbalancing/" rel="noopener nofollow">Elastic Load Balancing</a> to distribute traffic between your instances and to add an extra layer of protection in front of them. And once they’re up and running, make use of <a href="https://aws.amazon.com/compute-optimizer/" rel="noopener nofollow">AWS Compute Optimizer</a> or <a href="https://aws.amazon.com/premiumsupport/technology/trusted-advisor/" rel="noopener nofollow">Trusted Advisor Cost Optimization</a> checks to increase efficiency and avoid unnecessary costs. One big instance is not always cheaper nor always better than two smaller instances.',
+        'If your applications share a database instance or a set of database instances, separate them onto their own instances or own sets of database instances. Without a doubt, <a href="https://aws.amazon.com/rds/features/" rel="noopener nofollow">RDS</a> is the best for this. With RDS, you can manage backups and read replicas easily, scale your instances vertically or horizontally in minutes, and you can migrate easily to RDS with the <a href="https://aws.amazon.com/dms/" rel="noopener nofollow">Database Migration Service</a>',
+      ],
+    },
+  ],
+  [
+    {
+      type: 'header',
+      text: 'Decouple the Frontend and Backend of your Full Stack applications.',
+    },
+    {
+      type: 'para',
+      text: [
+        'Another easy one, perhaps, that every Software Engineer with experience would agree with. Simply, split your application’s Frontend hosting from your Backend hosting. They should be hosted separately so when one is down or undergoing maintenance, the other is still functioning. Obviously, the Frontend relies on the Backend to function but you want the Frontend to still work and show “nice” error messages rather than crash when the Backend is not available. Treat them as two different applications with separate repos, separate CI/CD pipelines and independent hostings as much as possible. A simple “we’ll be back soon” or “try again in 5 minutes” in the Frontend gives a very different experience to the end user compared to a blue screen of death when there’s a memory, database or deployment issue in the backend!',
+        'You can use <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html" rel="noopener nofollow">S3 for your static websites</a> and <a href="https://aws.amazon.com/s3/" rel="noopener nofollow">contents storage</a>, <a href="https://aws.amazon.com/cloudfront/" rel="noopener nofollow">CloudFront</a> for your CDN,<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html" rel="noopener nofollow">ECS for your Frontend or Backend containers</a>, <a  href="https://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-with-lambda-integration.html" rel="noopener nofollow">API Gateway and Lambda functions for your backend APIs</a> and <a href="https://aws.amazon.com/lambda/" rel="noopener nofollow">processors</a>, or <a href="https://aws.amazon.com/ec2/" rel="noopener nofollow">EC2</a> for anything you want to lift and shift as is.',
+      ],
+    },
+  ],
+  [
+    {
+      type: 'header',
+      text: 'Categorise and decouple your Infrastructure as Code resources.',
+    },
+    {
+      type: 'para',
+      text: [
+        'Like many early adopters of <a  href="https://en.wikipedia.org/wiki/Infrastructure_as_code" rel="noopener nofollow">IaC</a>, our very early templates were either written per AWS service, which makes them too many, or for everything that makes up an application, which makes them too complicated. Imagine managing a template for VPCs, a template for Subnets, a template for RDS, a template for Load Balancers, etc. Too many. On the other hand, imagine managing one ~3000 lines template that includes everything for that application such as VPC, Subnets, RDS instances, Load Balancers, EC2 instances, IAM Roles, etc. Too complicated.',
+        'A few solid projects later, we found the sweet spot. We now group resources based on their logical service within the system we’re building. For example:',
+      ],
+    },
+    {
+      type: 'list',
+      text: [
+        'Infrastructure templates: the templates where we can manage the networking (e.g. VPC & Subnets) and security resources (e.g. IAM Roles). We can also add the resources that support-but-do-not-directly-host the application in this template if they’re not lengthy (e.g. S3 Buckets or Cognito User Pools). And, if the resources fit into the support-but-do-not-directly-host the application but they’re lengthy (e.g. RDS or Redis), we can add them to the infrastructure templates as <a  href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html" rel="noopener nofollow">Nested Stacks</a> (for <a  href="https://aws.amazon.com/cloudformation/" rel="noopener nofollow">CloudFormation</a>) or as <a  href="https://www.terraform.io/docs/language/modules/index.html" rel="noopener nofollow">Modules</a> (for <a  href="https://www.terraform.io/" rel="noopener nofollow">Terraform</a>). These templates should be hosted in an “Infrastructure” repository and deployed through an “Infrastructure” CI/CD pipeline. Also, these templates should be parameterised allowing us to deploy them multiple times to create however many environments we need (Dev, UAT, etc) consistently.',
+        'one application directly e.g. API Gateway and Lambda Functions, ECS Services and Tasks or Launch Templates and Autoscaling Groups. These templates should be hosted in their respective application’s repository, managed with the application and deployed through the application’s CI/CD pipeline. This gives the application’s team ownership and accountability over their application. A good DevOps practice. These templates are also parameterised and deployed for the number of environments needed.',
+        'Supporting templates: these are the templates where we manage shared resources, account level resources, CI/CD resources, etc. These templates are usually deployed once per account or once per application and managed alongside the infrastructure templates.',
+      ],
+    },
+  ],
+  [
+    {
+      type: 'header',
+      text: 'Finally, refactor and decouple your monolithic applications.',
+    },
+    {
+      type: 'para',
+      text: [
+        'Perhaps, this is the first thing people think of when you start talking about decoupling; and this is where they give up. Decoupling monolithic apps could be overwhelming, time consuming and expensive when you look at it altogether! But, in reality, it doesn’t have to be. As you read so far, we have gone through different examples of decoupling and de-risking different things around the app. “Take the small wins to achieve the bigger goals”, and when you get to this stage, here are a few pointers to help you:',
+      ],
+    },
+    {
+      type: 'list',
+      text: [
+        'For Backend apps: Look into your application’s backend and dig into the functionalities and services. If you have scheduled processes or backend tasks move them onto their own <a  href="https://aws.amazon.com/ecs/?whats-new-cards.sort-by=item.additionalFields.postDateTime&amp;whats-new-cards.sort-order=desc&amp;ecs-blogs.sort-by=item.additionalFields.createdDate&amp;ecs-blogs.sort-order=desc" rel="noopener nofollow">ECS containers</a>s or, better, <a  href="https://aws.amazon.com/lambda/" rel="noopener nofollow">Lambda functions</a> and use a messaging service to invoke them such as <a  href="https://aws.amazon.com/blogs/compute/choosing-between-messaging-services-for-serverless-applications/" rel="noopener nofollow">SQS, SNS or EventBridge</a>. Then, for the core services, rearchitect them in a <a  href="https://aws.amazon.com/microservices/" rel="noopener nofollow">Microservices architecture</a>. The Microservices architecture could be made up of containers on <a  href="https://aws.amazon.com/ecs/" rel="noopener nofollow">ECS</a>, Kubernetes on <a  href="https://aws.amazon.com/kubernetes/" rel="noopener nofollow">EKS</a>, functions on <a  href="https://aws.amazon.com/lambda/" rel="noopener nofollow">Lambda</a> or a mix of all. So many options and all of them are right. The Microservices could be as big or as small as you want them. The idea is to decouple what you can.',
+        'For Frontend apps: This is relatively new but Frontends are now following the steps of backends as modern web apps have grown. There are so many services on AWS to help you decouple your Frontend but look into containers on <a  href="https://aws.amazon.com/ecs" rel="noopener nofollow">ECS</a> or static contents websites on <a  href="https://aws.amazon.com/s3/" rel="noopener nofollow">S3</a>. Also, take a look at the <a  href="https://micro-frontends.org/" rel="noopener nofollow">Micro Frontends</a> for more ideas.',
+        'For Databases: I won’t bother you talking about refactoring and splitting databases. You can actually reduce the risks when you’re hosting multiple databases by simply moving them away from each other as mentioned earlier. If they’re on one big instance, move them to smaller suitable instances. If you have a master and replicas on the same host, move them away to different hosts. Better yet, move to a managed database service where you’re not relying on physical hosts nor on one or two hosts for management. <a  href="https://aws.amazon.com/rds/ha/" rel="noopener nofollow">RDS High Availability and %99.95 SLA</a>',
+      ],
+    },
+    {
+      type: 'para',
+      text: [
+        'That’s all folks! I know I highlighted a lot of decoupling practices and mentioned a dozen of AWS services and examples, in a 5 minutes read so I will leave you with that. The aim is to inspire anyone out there looking for ideas and to show how easy it is to get started.',
+      ],
+    },
+  ],
+];

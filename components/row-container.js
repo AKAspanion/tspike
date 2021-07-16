@@ -134,14 +134,11 @@ const ButtonText = styled.span`
 `;
 
 const getRow = (row) => {
-  console.log(row);
   return (
     <RowWrapperMain>
       {row &&
         row.map((rowCol) => {
           const { type } = rowCol;
-          console.log(rowCol);
-          console.log(type?.toLowerCase() === 'image');
           if (type?.toLowerCase() === 'image') {
             const { url } = rowCol;
             return (
@@ -193,7 +190,6 @@ const getRow = (row) => {
 export default function RowsContainer({ rowsData }) {
   const { width } = useWindowReSize();
   const isMobile = width < 500;
-  console.log(rowsData);
   return (
     <RowsContainerWrapper>
       <RowWrapper>

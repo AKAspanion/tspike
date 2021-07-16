@@ -101,10 +101,8 @@ const Hamburger = styled.div`
   transform: scale(0.5);
 `;
 
-export default function Header(props) {
-  const router = useRouter();
-  const headerBg = props.transparent ? theme.colors.headerTransparent : theme.colors.white;
-  const HeaderMain = styled.header`
+const getHeader = (headerBg, props) => {
+  return styled.header`
     --pad: ${({ theme }) => theme.padding};
     width: 100%;
     ${props?.pagefull ? 'position:absolute; color:white' : ''};
@@ -119,6 +117,12 @@ export default function Header(props) {
       border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
   `;
+};
+
+export default function Header(props) {
+  const router = useRouter();
+  const headerBg = props.transparent ? theme.colors.headerTransparent : theme.colors.white;
+  const HeaderMain = getHeader(headerBg, props);
   const [onTop, setOnTop] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
 

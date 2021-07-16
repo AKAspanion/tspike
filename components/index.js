@@ -13,3 +13,7 @@ export { default as Layout } from './layout';
 export { default as CareerCard } from './career-card';
 export { default as HeaderOverlay } from './header-overlay';
 export { default as RowsContainer } from './row-container';
+export { default as DecoupleContainers } from './decouple-containers';
+export { default as DecoupleProfile } from './decouple-profile';
+export { default as PrevNextNav } from './prev-next';
+export { default as Error404 } from './error-404';

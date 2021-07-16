@@ -17,7 +17,7 @@ export default function Careers() {
       </Head>
       <Parallax
         speed={0.5}
-        height={400}
+        height={500}
         img="https://www-cdn.tigerspike.com/wp-content/uploads/2017/05/London.jpg"
         overlay={true}
         top={0}

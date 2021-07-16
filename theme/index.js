@@ -6,12 +6,14 @@ export default {
     secondary: 'Playfair Display',
   },
   maxWidth: '1200px',
+  mediumWith: '804px',
   colors: {
     black: '#000000',
     white: '#ffffff',
     primary: '#009FA1',
     headerTransparent: '#14161800',
     transparentBlack: '#777777',
+    orange: '#ff6600',
   },
   bg: {
     dark: '#1A1E20',
