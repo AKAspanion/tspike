@@ -22,7 +22,7 @@ export default function Careers() {
         height={500}
         img="https://www-cdn.tigerspike.com/wp-content/uploads/2016/09/Sydney-2018.jpg"
         overlay={true}
-        bottom={-46}
+        bottom={`-50%`}
         overlayData={overlayData}
       />
       {rowContainerSydney && <RowsContainer rowsData={rowContainerSydney} />}

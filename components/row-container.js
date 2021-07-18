@@ -6,6 +6,7 @@ import { headingText } from '../mixins/';
 
 const RowsContainerWrapper = styled.div`
   --pad: ${({ theme }) => theme.padding};
+  padding-top: var(--pad);
   position: relative;
   display: flex;
   @media ${device.mobile} {

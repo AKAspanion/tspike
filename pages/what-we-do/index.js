@@ -93,6 +93,7 @@ export default function WhatWeDo() {
         speed={0.5}
         height={700}
         img="https://www-cdn.tigerspike.com/wp-content/uploads/2020/02/DSC3864-1.jpg"
+        top={0}
       />
       <CatalystHeroCard>
         <CatalystHeroLeft>

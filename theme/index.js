@@ -14,6 +14,7 @@ export default {
     headerTransparent: '#14161800',
     transparentBlack: '#777777',
     orange: '#ff6600',
+    cookieButton: '#0cb4ce',
   },
   bg: {
     dark: '#1A1E20',

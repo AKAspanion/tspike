@@ -9,6 +9,11 @@ const HeaderWrapper = styled.div`
   color: ${({ theme }) => theme.colors.white};
   height: 100%;
   margin-top: 10%;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 6;
 `;
 const TextContainer = styled(Container)`
     padding: var(--pad);

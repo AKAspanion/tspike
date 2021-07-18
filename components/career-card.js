@@ -8,6 +8,18 @@ const PositionWrapper = styled.div`
   --pad: ${({ theme }) => theme.padding};
   color: ${({ theme }) => theme.colors.white};
 `;
+const JobContainerHeading = styled.h1`
+  ${headingText};
+  font-size: 42px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  padding-top: calc(var(--pad) * 2);
+  padding-left: var(--pad);
+  padding-right: var(--pad);
+  text-align: center;
+  color: ${({ theme }) => theme.colors.black};
+`;
 const JobContainer = styled(Container)`
     padding: var(--pad);
     text-align: center;
@@ -64,6 +76,7 @@ export default function CareerCard(props) {
   };
   return (
     <PositionWrapper>
+      <JobContainerHeading>Career Opportunities</JobContainerHeading>
       {careerData &&
         careerData.map((positionData) => {
           return careerBox(positionData);

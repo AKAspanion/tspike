@@ -17,3 +17,4 @@ export { default as DecoupleContainers } from './decouple-containers';
 export { default as DecoupleProfile } from './decouple-profile';
 export { default as PrevNextNav } from './prev-next';
 export { default as Error404 } from './error-404';
+export { default as CookieAccept } from './cookie-accept';

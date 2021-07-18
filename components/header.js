@@ -124,14 +124,20 @@ export default function Header(props) {
   const headerBg = props.transparent ? theme.colors.headerTransparent : theme.colors.white;
   const HeaderMain = getHeader(headerBg, props);
   const [onTop, setOnTop] = useState(false);
+  const [tranparent, setTranparent] = useState(props.transparent || false);
   const [navOpen, setNavOpen] = useState(false);
 
   useScrollPosition(({ currPos }) => {
     setOnTop(currPos.y < 0);
+    props.transparent && setTranparent(currPos.y < 100);
   });
 
   const scrollStyles = onTop
-    ? { position: 'fixed', boxShadow: '0 4px 10px -10px rgba(0, 0, 0, 0.6)' }
+    ? {
+        position: 'fixed',
+        boxShadow: '0 4px 10px -10px rgba(0, 0, 0, 0.6)',
+        ...(tranparent && { background: theme.colors.white, color: theme.colors.black }),
+      }
     : {};
 
   const toggleNavMobile = () => {

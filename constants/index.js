@@ -1206,3 +1206,7 @@ export const dataContainer = [
     },
   ],
 ];
+
+export const envVars = {
+  REACT_APP_GOOGLE_ANALYTICS_ID: '154648946546546546546544654654654',
+};

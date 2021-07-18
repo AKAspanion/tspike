@@ -141,7 +141,8 @@ export default function ContactCard({ img = '' }) {
     );
   };
   return (
-    <ContactCardWrapper style={img ? { backgroundImage: `url(${img})` } : {}}>
+    <ContactCardWrapper
+      style={img ? { backgroundImage: `url(${img})`, backgroundSize: 'cover' } : {}}>
       <ContactCardContainer>
         <ContactCardItem style={img ? { background: 'transparent' } : {}}>
           {!img && (

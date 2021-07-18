@@ -101,9 +101,10 @@ export default function ParallaxImage({
 
   const getBackGroundOverlay = (overlayData) => {
     return (
-      <BackgroundOverlay>
+      <>
+        <BackgroundOverlay></BackgroundOverlay>
         <HeaderOverlay overlayData={overlayData}></HeaderOverlay>
-      </BackgroundOverlay>
+      </>
     );
   };
 
