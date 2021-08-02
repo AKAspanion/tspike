@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import { headingText } from '../mixins/';
 import device from '../theme/device';
 import { Container } from '.';
-import { useEffect } from 'react';
+import { useEffect, useState
+ } from 'react';
 import { InitializeGA } from './ga-init';
 import { envVars } from '../constants';
 import theme from '../theme';
@@ -31,25 +32,30 @@ export const LearnMoreWrapper = styled.a`
   /* <div id="catapult-cookie-bar" class=""><div class="ctcc-inner "><span class="ctcc-left-side">We use cookies. <a class="ctcc-more-info-link" tabindex="0" target="_blank" href="https://tigerspike.com/privacy-notice/">Learn more</a></span><span class="ctcc-right-side"><button id="catapultCookie" tabindex="0" onclick="catapultAcceptCookies();">OK</button></span></div><!-- custom wrapper class --></div> */
 }
 
-const handleAcceptCookie = () => {
-  if (envVars.REACT_APP_GOOGLE_ANALYTICS_ID) {
-    InitializeGA(envVars.REACT_APP_GOOGLE_ANALYTICS_ID);
-  }
-};
-
-const handleDeclineCookie = () => {
-  //remove google analytics cookies
-  Cookies.remove('_ga');
-  Cookies.remove('_gat');
-  Cookies.remove('_gid');
-};
 
 export default function CookieAccept(props) {
+ 
+  const [transformProp, setTransformProp] = useState(false);
+
+  const handleAcceptCookie = () => {
+    setTransformProp(true);
+    if (envVars.REACT_APP_GOOGLE_ANALYTICS_ID) {
+      InitializeGA(envVars.REACT_APP_GOOGLE_ANALYTICS_ID);
+    }
+  };
+
+  const handleDeclineCookie = () => {
+    //remove google analytics cookies
+    Cookies.remove('_ga');
+    Cookies.remove('_gat');
+    Cookies.remove('_gid');
+  };
+
   const cookieData = {
     buttonText: 'OK',
     learnMoreLink: 'https://tigerspike.com/privacy-notice/',
     cookieName: 'tigerspikeCookie',
-    hideOnAccept: true,
+    hideOnAccept: false,
   };
 
   useEffect(() => {
@@ -72,6 +78,8 @@ export default function CookieAccept(props) {
           fontFamily: theme.fontFamily.primary,
           fontSize: '18px',
           padding: '1em',
+          transition: 'all 1s',
+          transform: transformProp ? 'translateY(100vw)' : 'none',
         }}
         contentStyle={{
           flex: 'none',
@@ -86,7 +94,6 @@ export default function CookieAccept(props) {
           color: theme.colors.white,
           fontFamily: theme.fontFamily.primary,
         }}
-        hideOnAccept={true}
         onAccept={handleAcceptCookie}
         onDecline={handleDeclineCookie}
         buttonWrapperClasses={'buttonWrapper'}
