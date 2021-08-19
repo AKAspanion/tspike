@@ -101,28 +101,25 @@ const Hamburger = styled.div`
   transform: scale(0.5);
 `;
 
-const getHeader = (headerBg, props) => {
-  return styled.header`
-    --pad: ${({ theme }) => theme.padding};
-    width: 100%;
-    ${props?.pagefull ? 'position:absolute; color:white' : ''};
-    z-index: 100;
-    padding: 0px var(--pad);
-    background: ${headerBg};
-    @media ${device.laptop} {
-      box-shadow: none !important;
-      padding-right: 4px;
-    }
-    @media ${device.mobile} {
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    }
-  `;
-};
+const HeaderStyled = styled.header`
+  --pad: ${({ theme }) => theme.padding};
+  width: 100%;
+  ${(props) => (props?.pagefull ? 'position:absolute; color:white' : '')};
+  z-index: 100;
+  padding: 0px var(--pad);
+  background: ${(props) =>
+    props.transparent ? theme.colors.headerTransparent : theme.colors.white};
+  @media ${device.laptop} {
+    box-shadow: none !important;
+    padding-right: 4px;
+  };
+  @media ${device.mobile} {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  };
+`;
 
 export default function Header(props) {
   const router = useRouter();
-  const headerBg = props.transparent ? theme.colors.headerTransparent : theme.colors.white;
-  const HeaderMain = getHeader(headerBg, props);
   const [onTop, setOnTop] = useState(false);
   const [tranparent, setTranparent] = useState(props.transparent || false);
   const [navOpen, setNavOpen] = useState(false);
@@ -146,7 +143,7 @@ export default function Header(props) {
 
   return (
     <>
-      <HeaderMain style={scrollStyles}>
+      <HeaderStyled style={scrollStyles} transparent={props.transparent} pagefull={props.pagefull}>
         <HeaderContainer>
           <LogoContainer>
             <Link href="/">
@@ -189,7 +186,7 @@ export default function Header(props) {
             ))}
           </NavMobileUl>
         </NavMobileContainer>
-      </HeaderMain>
+      </HeaderStyled>
       {onTop && <DummyContainer />}
     </>
   );
